@@ -21,6 +21,7 @@ def get_all_projects(request):
 def project_details(request,pk):
     project = get_object_or_404(Projects, pk = pk)
     if request.method == 'GET':
-        pass
+        serializer = ProjectSerializer(project)
+        return Response(serializer.data, status = status.HTTP_200_OK)
         
 
