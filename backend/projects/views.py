@@ -7,13 +7,18 @@ from .serializers import ProjectSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
-@api_view(['GET'])
+@api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def get_all_projects(request):
     if request.method == 'GET':
         projects = Projects.objects.filter(owner_id = request.user.id)
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
+    # elif request.method == 'POST':
+    #     serializer = ProjectSerializer(data = request.data)
+    #     if serializer.is_valid(raise_exception=True):
+    #         serializer.save(user = request.user)
+    #         return Response(serializer.data,status = status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
