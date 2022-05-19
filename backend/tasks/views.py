@@ -17,12 +17,19 @@ def get_my_projects(request):
         return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(['GET','PUT'])
 @permission_classes([IsAuthenticated])
 def project_tasks(request,pk):
-    project = get_object_or_404(Projects, pk = pk)
     # FOR THE PROJECT MANAGER TO SEE ALL THE TASKS RELATED TO THEIR PROJECTS
     if request.method == 'GET':
+        project = get_object_or_404(Projects, pk = pk)
         tasks = Tasks.objects.filter(project_id = project.id)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data, status = status.HTTP_200_OK)
+    # WORK ON POSTMAN REQUEST
+    elif request.method == 'PUT':
+        task = get_object_or_404(Tasks, pk = pk)
+        serializer = TaskSerializer(task, data = request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user = request.user)
+            return Response(serializer.data,status = status.HTTP_200_OK)
