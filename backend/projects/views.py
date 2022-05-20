@@ -15,12 +15,15 @@ def get_all_projects(request):
         projects = Projects.objects.filter(owner_id = request.user.id)
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
-    # SUPPOSE TO CREATE A PROJECT BY THE PROJECT MANAGER
+    
+
+    # NEED TO RETEST ON POSTMAN
+    # CREATES A NEW PROJECT
     elif request.method == 'POST':
         serializer = ProjectSerializer(data = request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(user = request.user)
-            return Response(serializer.data,status = status.HTTP_201_CREATED)
+            return Response(serializer.data,status.HTTP_201_CREATED)
 
 
 

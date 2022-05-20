@@ -22,5 +22,5 @@ urlpatterns = [
     path('api/cars/', include('cars.urls')),
     path('api/projects/', include('projects.urls')),
     # path('api/logs/', include('logs.urls')),
-    path('api/myprojects/', include('tasks.urls'))
+    path('api/tasks/', include('tasks.urls'))
 ]
