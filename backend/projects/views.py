@@ -12,8 +12,8 @@ from authentication.models import User
 def get_all_projects(request):
     # GETS ALL THE PROJECTS MADE BY THE LOG IN USER OR GETS PROJECTS ASSIGNED TO THE LOGGED IN USER
     if request.method == 'GET':
-        owner_projects = Projects.objects.filter(owner = request.user)
-        employee_assigned = Projects.objects.filter(assigned_users__id = request.user.id)
+        owner_projects = Projects.objects.filter(owner = request.user).order_by('due_date')
+        employee_assigned = Projects.objects.filter(assigned_users__id = request.user.id).order_by('due_date')
         if owner_projects :
             serializer = ProjectSerializer(owner_projects, many=True)
             return Response(serializer.data)

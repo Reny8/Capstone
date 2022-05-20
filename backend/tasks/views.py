@@ -2,8 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Tasks,Projects
-from projects.serializers import ProjectSerializer
+from .models import Tasks
 from .serializers import TaskSerializer
 from rest_framework.permissions import IsAuthenticated
 
@@ -13,8 +12,8 @@ from rest_framework.permissions import IsAuthenticated
 def get_my_projects(request):
     # VIEW YOUR TASKS CREATED
     if request.method == 'GET':
-        owner_projects = Tasks.objects.filter(project__owner = request.user)
-        employee_assigned = Tasks.objects.filter(assigned_id = request.user.id)
+        owner_projects = Tasks.objects.filter(project__owner = request.user).order_by('-status').order_by('project_id')
+        employee_assigned = Tasks.objects.filter(assigned_id = request.user.id).order_by('-status').order_by('project_id')
         if owner_projects :
             serializer = TaskSerializer(owner_projects, many=True)
             return Response(serializer.data, status = status.HTTP_200_OK)
