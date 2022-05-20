@@ -11,8 +11,13 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def get_my_projects(request):
+    # VIEW ONLY YOUR TASKS
+    if request.method == 'GET':
+        tasks = Tasks.objects.filter(assigned_id = request.user.id)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data, status = status.HTTP_200_OK)
     # CREATE A NEW TASK
-    if request.method == 'POST':
+    elif request.method == 'POST':
         serializer = TaskSerializer(data = request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(assigned = request.user)
