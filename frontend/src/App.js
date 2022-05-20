@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import React from 'react';
+import React from "react";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -18,19 +18,19 @@ import PrivateRoute from "./utils/PrivateRoute";
 function App() {
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <HomePage />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
       <Footer />
     </div>
   );
