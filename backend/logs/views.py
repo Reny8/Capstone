@@ -7,11 +7,21 @@ from .models import Logs
 from .serializers import LogSerializer
 # Create your views here.
 
-# TESTED IN POSTMAN
-@api_view(['GET'])
+@api_view(['GET','POST'])
+@permission_classes([IsAuthenticated])
+def log_details(request):
+    if request.method == 'POST':
+        serializer = LogSerializer(data = request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(assigned = request.user)
+            return Response(serializer.data, status= status.HTTP_201_CREATED)
+
+@api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def log_tasks(request,pk):
+    # GETS ALL THE LOGS BY TASK
     if request.method == 'GET':
         logs = Logs.objects.filter(task_id = pk)
         serializer = LogSerializer(logs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
