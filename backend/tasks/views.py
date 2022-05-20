@@ -25,7 +25,7 @@ def get_my_projects(request):
         
 
 
-@api_view(['GET','PUT'])
+@api_view(['GET','PUT','DELETE'])
 @permission_classes([IsAuthenticated])
 def project_tasks(request,pk):
     # FOR THE PROJECT MANAGER TO SEE ALL THE TASKS RELATED TO THEIR PROJECTS
@@ -40,3 +40,8 @@ def project_tasks(request,pk):
         if serializer.is_valid(raise_exception=True):
             serializer.save(user = request.user)
             return Response(serializer.data,status = status.HTTP_200_OK)
+    # DELETES A TASK
+    elif request.method == 'DELETE':
+        task = get_object_or_404(Tasks, pk = pk)
+        task.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)
