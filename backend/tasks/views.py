@@ -22,7 +22,7 @@ def get_my_projects(request):
     elif request.method == 'POST':
         serializer = TaskSerializer(data = request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(owner=request.user)
+            serializer.save(assigned = request.user)
             return Response(serializer.data, status = status.HTTP_201_CREATED)
         
 
