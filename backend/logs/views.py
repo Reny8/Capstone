@@ -12,7 +12,8 @@ from .serializers import LogSerializer
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def log_tasks(request,pk):
-    task = get_object_or_404(Tasks, pk = pk)
-    logs = Logs.objects.filter(task_id = task.id)
-    serializer = LogSerializer(logs, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    if request.method == 'GET':
+        task = get_object_or_404(Tasks, pk = pk)
+        logs = Logs.objects.filter(task_id = task.id)
+        serializer = LogSerializer(logs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

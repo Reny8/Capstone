@@ -11,13 +11,18 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def get_my_projects(request):
+    # GETTING THE PROJECTS FOR ASSIGNED TO THE EMPLOYEE
+    if request.method == "GET":
+        projects = Projects.objects.filter(assigned_users__id = request.user.id)
+        serializer = ProjectSerializer(projects, many=True)
+        return Response(serializer.data)
 
     # NEW TO RETEST ON POSTMAN 
     # CREATE A NEW TASK
-    if request.method == 'POST':
+    elif request.method == 'POST':
         serializer = TaskSerializer(data = request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(user=request.user)
+            serializer.save(owner=request.user)
             return Response(serializer.data, status = status.HTTP_201_CREATED)
         
 
@@ -27,8 +32,7 @@ def get_my_projects(request):
 def project_tasks(request,pk):
     # FOR THE PROJECT MANAGER TO SEE ALL THE TASKS RELATED TO THEIR PROJECTS
     if request.method == 'GET':
-        project = get_object_or_404(Projects, pk = pk)
-        tasks = Tasks.objects.filter(project_id = project.id)
+        tasks = Tasks.objects.filter(project_id = pk)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data, status = status.HTTP_200_OK)
     # UPDATE A TASK CREATED
