@@ -8,23 +8,23 @@ const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
-    <div>
+    <div >
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>Project Tracker</b>
           </Link>
         </li>
-        <li><button>HOME</button></li>
+        <li><button className="button">HOME</button></li>
         <li>
           {user ? (
-            <button onClick={logoutUser}>LOGOUT</button>
+            <button className="button" onClick={logoutUser}>LOGOUT</button>
           ) : (
-            <button onClick={() => navigate("/login")}>LOGIN</button>
+            <button className="button" onClick={() => navigate("/login")}>LOGIN</button>
           )}
         </li>
-        <li><button>LOGS</button></li>
-        <li><button>AGENDA</button></li>
+        <li><button className="button">LOGS</button></li>
+        <li><button className="button">AGENDA</button></li>
       </ul>
     </div>
   );
