@@ -5,21 +5,20 @@ from rest_framework import status
 from .models import Projects
 from .serializers import ProjectSerializer
 from rest_framework.permissions import IsAuthenticated
-
+from authentication.models import User
 
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def get_all_projects(request):
-    # GETS ALL THE PROJECTS MADE MY THE CURRENT PROJECT MANAGER LOGGED IN 
-    # TRYING TO DISPLAY DIFFERENT INFO DEPENDING ON WHO IS SIGNING IN
-    # COME BACK TO
+    # GETS ALL THE PROJECTS MADE BY THE LOG IN USER OR GETS PROJECTS ASSIGNED TO THE LOGGED IN USER
     if request.method == 'GET':
-        owner_params = request.query_params.get('owner_id')
-        if request.user.id == owner_params:
+        owner = Projects.objects.filter(owner = request.user)
+        employee = Projects.objects.filter(assigned_users__id = request.user.id)
+        if owner :
             projects = Projects.objects.filter(owner_id = request.user.id)
             serializer = ProjectSerializer(projects, many=True)
             return Response(serializer.data)
-        else:
+        elif employee:
         # GETS PROJECTS ASSIGNED TO THE USER
             projects = Projects.objects.filter(assigned_users__id = request.user.id)
             serializer = ProjectSerializer(projects, many=True)
@@ -33,6 +32,13 @@ def get_all_projects(request):
             return Response(serializer.data,status.HTTP_201_CREATED)
 
 
-
-        
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def add_assigned_user(request,pk, id):
+    if request.method == 'PUT':
+        project = get_object_or_404(Projects, pk = pk)
+        user = get_object_or_404(User,id = id)
+        update_project = project.assigned_users.add(user)
+        serializer = ProjectSerializer(update_project)
+        return Response(serializer.data, status.HTTP_202_ACCEPTED)
 
