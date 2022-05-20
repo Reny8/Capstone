@@ -2,7 +2,7 @@ ul {
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  width: 8%;
+  width: 10rem;
   color: white;
   background-color: #221203;
   height: 100%;
