@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d4409d57-7119-4339-bfae-1f3a18bc6341",
-		"name": "DRF_JWT_Backend",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "345bf628-6f4f-4696-a591-7c375e394a1d",
+		"name": "Capstone_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20282611"
 	},
 	"item": [
 		{
@@ -15,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\",\r\n    \"email\": \"dan@devcodecamp.com\",\r\n    \"first_name\": \"Daniel\",\r\n    \"last_name\": \"Tulpa\"\r\n}",
+							"raw": "{\r\n    \"username\": \"John78\",\r\n    \"password\": \"hello111\",\r\n    \"email\": \"rezinnie78@gmail.com\",\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,11 +46,14 @@
 				{
 					"name": "Login_User",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"John78\",\r\n    \"password\": \"hello111\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -83,7 +87,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"refresh\": \"PASTE REFRESH TOKEN FROM LOGIN HERE\"\r\n}",
+							"raw": "{\r\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1NDc5ODQxMSwiaWF0IjoxNjUzMDcwNDExLCJqdGkiOiI3ZWFiYmUzZTQ4MDM0M2ZmOGI0MmI3MGIwNzQ2MzQ5MSIsInVzZXJfaWQiOjgsInVzZXJuYW1lIjoiSm9objc4IiwiZmlyc3RfbmFtZSI6IkpvaG4ifQ.JUzNOeLmv61_FzwVGjsUiqZudkute_mT4x4dhSk2qTA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -216,6 +220,368 @@
 							"path": [
 								"api",
 								"cars",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get_Project_Tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTIxOTM5LCJpYXQiOjE2NTMwNTc5MTgsImp0aSI6IjY3ZGI1ZWQzOThiNjRiM2FiZTVmYjE3YWIwZGQ0YmMzIiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJQTS5KYW5lIiwiZmlyc3RfbmFtZSI6IkphbmUifQ.f7tnpgtupp7tS-1nQsziP75dZmipD64nfzzQP7s3CAc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODYxNDA4LCJpYXQiOjE2NTI5OTczODksImp0aSI6IjU0NWEyYTY5YTE5NzQ4N2E4ZGY5ZjY2MjVmZDI2NzcwIiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJQTS5KYW5lIiwiZmlyc3RfbmFtZSI6IkphbmUifQ.Iecd-sUIdjFnnlG6LDCgN62Gd-E7KhUIg9Fmm3bxDt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"due_date\": \"2022-05-25\",\r\n    \"assigned_id\":  8,\r\n    \"description\": \"Create functionality to add a song\",\r\n    \"status\": \"Incomplete\",\r\n    \"project_id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/10/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"10",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_A_Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTExODY4LCJpYXQiOjE2NTMwNDc4NTcsImp0aSI6ImJhZmIyZmU0OTkyZjQ5N2Y4ZjM2ZDgxMDgwYWQ2YzYzIiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJQTS5KYW5lIiwiZmlyc3RfbmFtZSI6IkphbmUifQ.vzSnpTRMwtW8y9Duzo6jPYB0QQP7fDcrLPwbTSZ6MOk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"due_date\": \"2022-05-25\",\r\n    \"assigned_id\":  7,\r\n    \"description\": \"Create functionality to add a song\",\r\n    \"status\": \"Incomplete\",\r\n    \"project_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_All_Tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTM0NDIyLCJpYXQiOjE2NTMwNzA0MTEsImp0aSI6IjdhOWI3ZmQ4MjRjNzQ3YjQ4MjNlMDBhY2YwNTQ1M2Y2IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJKb2huNzgiLCJmaXJzdF9uYW1lIjoiSm9obiJ9.E_UxqjSOtRSsLnYFpm_kbvWxnMKvpqu5-55nvGrC06Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Get_All_User_Projects",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTMwMjE2LCJpYXQiOjE2NTMwNjYyMDcsImp0aSI6IjFhNzYwZDA5OGUyYTQ1MjdhNjlmZTMyYTQxMmE0Y2I2IiwidXNlcl9pZCI6NywidXNlcm5hbWUiOiJSaWxleTEwIiwiZmlyc3RfbmFtZSI6IlJpbGV5In0.xOjICCLVxhA6WII1WiPoZOqzPm_3f5m3m2fu0QvIFzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/projects/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_A_Project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTExMDQyLCJpYXQiOjE2NTMwNDcwMjUsImp0aSI6Ijc3MmU5NDg2YjdhOTRlNGJiYmFhYmY2M2UxM2Y5ZmMxIiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJKb2huNzgiLCJmaXJzdF9uYW1lIjoiSm9obiJ9.LLuvXRY4GcqlCGWxN-cXaQAMIxxd-g98FLxPU5s_bTw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"owner_id\": 6,\r\n    \"title\": \"Twitter Clone\",\r\n    \"due_date\": \"2022-07-30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/projects/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Assigned_Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTI0NjE0LCJpYXQiOjE2NTMwNTc5MTgsImp0aSI6ImNkNzRhNDRlODkwYzQzNTVhZmQ2ODkwMjhhZTYxMTgxIiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJQTS5KYW5lIiwiZmlyc3RfbmFtZSI6IkphbmUifQ.7sfTyfLwL9YJNh5wfUfPNIqIkMvV7_dxBet1PmM7AeM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/projects/5/7/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"projects",
+								"5",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "Get_Task_Logs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTIxOTM5LCJpYXQiOjE2NTMwNTc5MTgsImp0aSI6IjY3ZGI1ZWQzOThiNjRiM2FiZTVmYjE3YWIwZGQ0YmMzIiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJQTS5KYW5lIiwiZmlyc3RfbmFtZSI6IkphbmUifQ.f7tnpgtupp7tS-1nQsziP75dZmipD64nfzzQP7s3CAc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logs/10/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logs",
+								"10",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create _A_Log",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzOTI0NjE0LCJpYXQiOjE2NTMwNTc5MTgsImp0aSI6ImNkNzRhNDRlODkwYzQzNTVhZmQ2ODkwMjhhZTYxMTgxIiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJQTS5KYW5lIiwiZmlyc3RfbmFtZSI6IkphbmUifQ.7sfTyfLwL9YJNh5wfUfPNIqIkMvV7_dxBet1PmM7AeM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"log_date\": \"2022-05-21\",\r\n    \"comment\": \"Found a bug in the add a song function = Fixed\",\r\n    \"assigned_id\": 8,\r\n    \"project_id\": 4,\r\n    \"task_id\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logs/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logs",
 								""
 							]
 						}

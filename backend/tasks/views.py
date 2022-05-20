@@ -11,11 +11,17 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def get_my_projects(request):
-    # VIEW ONLY YOUR TASKS
+    # VIEW YOUR TASKS CREATED
     if request.method == 'GET':
-        tasks = Tasks.objects.filter(assigned_id = request.user.id)
-        serializer = TaskSerializer(tasks, many=True)
-        return Response(serializer.data, status = status.HTTP_200_OK)
+        owner_projects = Tasks.objects.filter(project__owner = request.user)
+        employee_assigned = Tasks.objects.filter(assigned_id = request.user.id)
+        if owner_projects :
+            serializer = TaskSerializer(owner_projects, many=True)
+            return Response(serializer.data, status = status.HTTP_200_OK)
+        elif employee_assigned:
+        # GETS TASKS ASSIGNED
+            serializer = TaskSerializer(employee_assigned, many=True)
+            return Response(serializer.data, status = status.HTTP_200_OK)
     # CREATE A NEW TASK
     elif request.method == 'POST':
         serializer = TaskSerializer(data = request.data)
