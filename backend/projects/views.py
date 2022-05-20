@@ -11,13 +11,21 @@ from rest_framework.permissions import IsAuthenticated
 @permission_classes([IsAuthenticated])
 def get_all_projects(request):
     # GETS ALL THE PROJECTS MADE MY THE CURRENT PROJECT MANAGER LOGGED IN 
+    # TRYING TO DISPLAY DIFFERENT INFO DEPENDING ON WHO IS SIGNING IN
+    # COME BACK TO
     if request.method == 'GET':
-        projects = Projects.objects.filter(owner_id = request.user.id)
-        serializer = ProjectSerializer(projects, many=True)
-        return Response(serializer.data)
-    
+        # PROJECTS CREATED BY THE PROJECT MANAGER
+        owner_params = request.query_params.get('owner_id')
+        if request.user.id == owner_params:
+            projects = Projects.objects.filter(owner_id = request.user.id)
+            serializer = ProjectSerializer(projects, many=True)
+            return Response(serializer.data)
+        else:
+        # GETS PROJECTS ASSIGNED TO THE USER
+            projects = Projects.objects.filter(assigned_users__id = request.user.id)
+            serializer = ProjectSerializer(projects, many=True)
+            return Response(serializer.data)
 
-    # NEED TO RETEST ON POSTMAN
     # CREATES A NEW PROJECT
     elif request.method == 'POST':
         serializer = ProjectSerializer(data = request.data)

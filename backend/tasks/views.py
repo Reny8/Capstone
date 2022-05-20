@@ -11,15 +11,10 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def get_my_projects(request):
-    # GETTING THE PROJECTS FOR ASSIGNED TO THE EMPLOYEE
-    if request.method == "GET":
-        projects = Projects.objects.filter(assigned_users__id = request.user.id)
-        serializer = ProjectSerializer(projects, many=True)
-        return Response(serializer.data)
 
     # NEW TO RETEST ON POSTMAN 
     # CREATE A NEW TASK
-    elif request.method == 'POST':
+    if request.method == 'POST':
         serializer = TaskSerializer(data = request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(user=request.user)
