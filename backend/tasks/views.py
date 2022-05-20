@@ -17,7 +17,6 @@ def get_my_projects(request):
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
 
-    # NEW TO RETEST ON POSTMAN 
     # CREATE A NEW TASK
     elif request.method == 'POST':
         serializer = TaskSerializer(data = request.data)
@@ -26,7 +25,7 @@ def get_my_projects(request):
             return Response(serializer.data, status = status.HTTP_201_CREATED)
         
 
-
+# ALL DOUBLED CHECKED ON POSTMAN
 @api_view(['GET','PUT','DELETE'])
 @permission_classes([IsAuthenticated])
 def project_tasks(request,pk):
