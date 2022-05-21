@@ -20,34 +20,36 @@ const LoginPage = () => {
 
   return (
     <div>
-      <form className="grid" onSubmit={handleSubmit}>
+      <form className="login-container" onSubmit={handleSubmit}>
         <div className="border-box">
-          <h2>LOGIN HERE</h2>
+          <h2>LOGIN BELOW</h2>
           <div className="grid-box">
-            <label>USERNAME:</label>{" "}
+            <label>USERNAME:
             <input
               type="text"
               name="username"
+              placeholder= " Username Here..."
               value={formData.username}
               onChange={handleInputChange}
-            />
+            /></label>{" "}
           </div>
           <div className="grid-box">
-            <label>PASSWORD:</label>{" "}
+            <label>PASSWORD:
             <input
               type="text"
               name="password"
+              placeholder=" Password Here..."
               value={formData.password}
               onChange={handleInputChange}
-            />
+            /></label>{" "}
           </div>{" "}
           <div className="grid-box">
             <Link to="/register">REGISTER HERE</Link>{" "}
             <button className="button">SIGN IN</button>{" "}
-          </div>{" "}
           {isServerError ? (
             <p className="error">Login failed, incorrect credentials!</p>
           ) : null}
+          </div>{" "}
         </div>
       </form>
     </div>

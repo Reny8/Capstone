@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
-
+import { Link } from "react-router-dom";
+import "./RegisterPage.css";
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
   const defaultValues = {
@@ -17,58 +18,80 @@ const RegisterPage = () => {
   );
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Username:{" "}
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          First Name:{" "}
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Last Name:{" "}
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Email:{" "}
-          <input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="text"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-        </label>
-        <p style={{ fontSize: "12px" }}>
-          NOTE: Make this an uncommon password with characters, numbers, and
-          special characters!
-        </p>
-        <button>Register!</button>
+    <div>
+      <form className="register-container" onSubmit={handleSubmit}>
+        {" "}
+        <div className="border-box">
+          <h2> REGISTER BELOW</h2>
+          <div className="grid-box">
+            <label>
+              USERNAME:
+              <input
+                type="text"
+                name="username"
+                placeholder=" Enter Username Choice..."
+                value={formData.username}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="grid-box">
+            <label>
+              FIRST NAME:
+              <input
+                type="text"
+                name="firstName"
+                placeholder = " Enter First Name Here..."
+                value={formData.firstName}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="grid-box">
+            <label>
+              LAST NAME:
+              <input
+                type="text"
+                name="lastName"
+                placeholder=" Enter Last Name Here..."
+                value={formData.lastName}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="grid-box">
+            <label>
+              EMAIL:
+              <input
+                type="text"
+                name="email"
+                placeholder=" Email Address Here..."
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="grid-box">
+            <label>
+              PASSWORD:
+              <input
+                type="text"
+                name="password"
+                placeholder=" Enter Password Choice..."
+                value={formData.password}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="grid-box">
+            <Link to="/login">LOGIN</Link>{" "}
+            <button className="button">REGISTER</button>{" "}
+          </div>
+          <p style={{ fontSize: "12px" }}>
+            NOTE: Make this an uncommon password with characters, numbers, and
+            special characters!
+          </p>
+        </div>
       </form>
     </div>
   );

@@ -3,7 +3,7 @@
   margin-top: 1rem;
   margin-left: 1em;
 }
-.grid {
+.login-container {
   display: grid;
   grid-template-areas: 
   "top"
@@ -21,22 +21,25 @@ margin-top: 1rem;
   margin-right: auto;
   box-shadow: 3px 3px 6px #6187C2;
   border-radius: 15px;
-  padding: 2rem  4rem  2rem 4rem
+  padding: 2rem  4rem  2rem 4rem;
+  display: flex;
+  flex-direction: column;
+
 }
 .border-box input {
   border-radius: 10px;
+  margin-left: 1rem;
   color: white;
   background-color: #332313;
 }
 .grid-box label {
-  margin-right: 2rem;
   font-size: x-large;
 }
 .border-box h2 {
   text-align: center;
 }
 .border-box button {
-  margin-left: 3.2rem;
-  width: 186px;
+  margin-left: 2rem;
+  width: 277px;
   margin-top: 0.5rem;
 }

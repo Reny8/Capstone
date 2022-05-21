@@ -1,0 +1,21 @@
+.register-container .border-box {
+    margin-left: 34rem;
+    margin-right: 24rem;
+    padding: 2rem  4rem  2rem 4rem;
+    display: flex;
+    align-items:flex-end;
+    text-align: center
+}
+.register-container {
+    padding-top: 6rem;
+}
+.register-container .grid-box label {
+    margin-right: 2rem
+}
+.register-container .grid-box button {
+    margin-right: 2rem
+}
+.register-container .border-box h2{
+    margin-right: auto;
+    margin-left: auto
+}
