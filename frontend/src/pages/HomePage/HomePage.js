@@ -4,6 +4,7 @@ import axios from "axios";
 import DisplayProjects from "../../components/DisplayProjects/DisplayProjects";
 import DisplayTasks from "../../components/DisplayTasks/DisplayTasks";
 import "./HomePage.css";
+import SearchBar from "../../components/SearchBar/SearchBar";
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [projects, setProjects] = useState([]);
@@ -44,10 +45,10 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <div>
-        <h1 className="welcome"> Welcome {user.first_name}!</h1>
+      <div className="welcome">
+        <h1 > Welcome {user.first_name}!</h1>
+        <SearchBar />
       </div>
-
       <div className="box">
         <div>
           <h2>Current Projects</h2>
