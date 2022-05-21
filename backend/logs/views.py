@@ -10,18 +10,20 @@ from .serializers import LogSerializer
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def log_details(request):
-    if request.method == 'POST':
+    assigned_logs = Logs.objects.filter(assigned_id = request.user.id)
+    see_all_logs = Logs.objects.filter(project__owner = request.user.id)
+    if request.method == 'GET':
+        if assigned_logs:
+            serializer = LogSerializer(assigned_logs, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        elif see_all_logs:
+            serializer = LogSerializer(see_all_logs, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
         serializer = LogSerializer(data = request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(assigned = request.user)
             return Response(serializer.data, status= status.HTTP_201_CREATED)
 
-@api_view(['GET','POST'])
-@permission_classes([IsAuthenticated])
-def log_tasks(request,pk):
-    # GETS ALL THE LOGS BY TASK
-    if request.method == 'GET':
-        logs = Logs.objects.filter(task_id = pk)
-        serializer = LogSerializer(logs, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+  
     

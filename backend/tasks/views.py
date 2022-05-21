@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
-def get_my_projects(request):
+def get_my_tasks(request):
     # VIEW YOUR TASKS CREATED
     if request.method == 'GET':
         owner_projects = Tasks.objects.filter(project__owner = request.user).order_by('-status').order_by('project_id')

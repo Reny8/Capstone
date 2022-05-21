@@ -3,5 +3,4 @@ from logs import views
 
 urlpatterns = [
     path('', views.log_details),
-    path('<int:pk>/', views.log_tasks)
 ]
