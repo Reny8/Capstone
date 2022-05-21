@@ -46,7 +46,7 @@ const HomePage = (props) => {
   return (
     <div>
       <div className="welcome">
-        <h1 > Welcome {user.first_name}!</h1>
+        <h1> Welcome {user.first_name}!</h1>
         <SearchBar getAllTasks = {getAllTasks} setTasks = {setTasks} tasks = {tasks}/>
       </div>
       <div className="box">

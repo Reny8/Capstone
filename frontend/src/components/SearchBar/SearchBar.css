@@ -1,11 +1,20 @@
-.search {
+.search-bar input {
     margin-right: 1rem;
     height: 70%;
-    width: 80%;
+    border-radius: 10px;
+    margin-left: 1rem;
+    color: white;
+    background-color: #332313;
 }
-
 .search-bar {
+    display:flex;
+    align-items:center
+}
+.search-bar button {
+    height: 70%;
+    font-size: large;
     display: flex;
     align-items: center;
-    margin-left: 28rem;
+    justify-content: center;
+
 }
