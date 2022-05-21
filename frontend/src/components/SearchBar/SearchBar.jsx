@@ -30,7 +30,7 @@ const SearchBar = (props) => {
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search..."
+        placeholder="  Search Tasks..."
       />
       <button onClick={() => handleClick()} className="button">
         SEARCH
