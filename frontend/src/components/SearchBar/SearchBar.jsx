@@ -1,12 +1,43 @@
-import "./SearchBar.css"
-import React from 'react';
+import "./SearchBar.css";
+import React, { useState } from "react";
 const SearchBar = (props) => {
-    return ( 
-        <div className="search-bar">
-            <input className="search" placeholder="Search..."/>
-            <button className="button">SEARCH</button>
-        </div>
-     );
-}
- 
+  const [search, setSearch] = useState("");
+
+  function handleClick() {
+    let response = props.tasks.filter((task) => {
+      if (task.status.toLowerCase() === search.toLowerCase()) {
+        return true;
+      } else if (task.description.toLowerCase() === search.toLowerCase()) {
+        return true;
+      } else if (
+        task.assigned.first_name.toLowerCase() === search.toLowerCase()
+      ) {
+        return true;
+      } else if (
+        task.assigned.last_name.toLowerCase() === search.toLowerCase()
+      ) {
+        return true;
+      }
+    });
+    props.setTasks(response);
+    setSearch("");
+    if (search === "") {
+      props.getAllTasks();
+    }
+  }
+  return (
+    <div className="search-bar">
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="search"
+        placeholder="Search..."
+      />
+      <button onClick={() => handleClick()} className="button">
+        SEARCH
+      </button>
+    </div>
+  );
+};
+
 export default SearchBar;
