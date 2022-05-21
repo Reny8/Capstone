@@ -5,8 +5,8 @@ const DisplayProjects = (props) => {
       <table className="table">
         <thead>
           <tr>
-            <th >Project Title</th>
-            <th >Due Date</th>
+            <th>Project Title</th>
+            <th>Due Date</th>
           </tr>
         </thead>
         <tbody>
