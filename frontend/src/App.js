@@ -14,23 +14,18 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import LogsPage from "./pages/LogsPage/LogsPage";
 
 function App() {
   return (
     <div className="page">
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <HomePage />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
+      <Navbar />
+      <Routes>
+        <Route path="/"element={<PrivateRoute><HomePage /></PrivateRoute>}/>
+        <Route path="/logs" element={<PrivateRoute><LogsPage/></PrivateRoute>}/>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
       <Footer />
     </div>
   );

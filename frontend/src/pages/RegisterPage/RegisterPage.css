@@ -1,17 +1,18 @@
 .register-container .border-box {
-    margin-right: 24rem;
+    margin-right: 15rem;
     padding: 2rem  1rem  2rem 2rem;
     display: flex;
     align-items:flex-end;
 }
 .register-container {
-    padding-top: 6rem;
+    padding-top: 1rem;
 }
 .register-container .grid-box label {
     margin-right:2rem
 }
 .register-container .grid-box button {
-    margin-right: 2rem
+    margin-right: 2rem;
+    margin-bottom: 1rem;
 }
 .register-container .border-box h2{
     margin-right: auto;

@@ -15,7 +15,7 @@ const Navbar = () => {
             <b>Project Tracker</b>
           </Link>
         </li>
-        <li><button className="button">HOME</button></li>
+        <li><button onClick={() => navigate("/")} className="button">HOME</button></li>
         <li>
           {user ? (
             <button className="button" onClick={logoutUser}>LOGOUT</button>
@@ -23,7 +23,7 @@ const Navbar = () => {
             <button className="button" onClick={() => navigate("/login")}>LOGIN</button>
           )}
         </li>
-        <li><button className="button">LOGS</button></li>
+        <li><button  onClick={() => navigate("/logs")} className="button">LOGS</button></li>
         <li><button className="button">AGENDA</button></li>
       </ul>
     </div>
