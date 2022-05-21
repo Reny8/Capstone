@@ -27,6 +27,7 @@ p {
   border-radius: 15px;
   width: 120px;
   padding: 0.5rem 0.5rem;
+  box-shadow: 3px 3px 6px #541D62
 }
 
 .button:hover {

@@ -1,5 +1,7 @@
 .error {
   color: red;
+  margin-top: 1rem;
+  margin-left: 1em;
 }
 .grid {
   display: grid;
@@ -7,7 +9,7 @@
   "top"
   "middle"
   "bottom";
-  padding-top: 17rem;
+  padding-top: 13rem;
 }
 .grid-box{
 margin-top: 1rem;
@@ -15,7 +17,7 @@ margin-top: 1rem;
 
 .border-box {
   background-color:#221203;
-  margin-left: 40rem;
+  margin-left: 38rem;
   margin-right: auto;
   box-shadow: 3px 3px 6px #6187C2;
   border-radius: 15px;
@@ -28,4 +30,13 @@ margin-top: 1rem;
 }
 .grid-box label {
   margin-right: 2rem;
+  font-size: x-large;
+}
+.border-box h2 {
+  text-align: center;
+}
+.border-box button {
+  margin-left: 3.2rem;
+  width: 186px;
+  margin-top: 0.5rem;
 }

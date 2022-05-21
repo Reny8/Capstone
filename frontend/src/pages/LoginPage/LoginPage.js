@@ -20,40 +20,36 @@ const LoginPage = () => {
 
   return (
     <div>
-        <form className="grid" onSubmit={handleSubmit}>
-          <div className="border-box">
-            <h2 >LOGIN HERE</h2>
-            <div className="grid-box">
-              <label>USERNAME:</label>{" "}
-              <input
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="grid-box">
-              <label>PASSWORD:</label>{" "}
-              <input
-                type="text"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            {isServerError ? (
-              <div className="grid-box">
-                <p className="error">Login failed, incorrect credentials!</p>
-              </div>
-            ) : null}
-            <div className="grid-box">
-              <Link to="/register">REGISTER HERE</Link>{" "}
-              <button className="button">SIGN IN</button>{" "}
-            </div>
+      <form className="grid" onSubmit={handleSubmit}>
+        <div className="border-box">
+          <h2>LOGIN HERE</h2>
+          <div className="grid-box">
+            <label>USERNAME:</label>{" "}
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+            />
           </div>
-        </form>
+          <div className="grid-box">
+            <label>PASSWORD:</label>{" "}
+            <input
+              type="text"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+          </div>{" "}
+          <div className="grid-box">
+            <Link to="/register">REGISTER HERE</Link>{" "}
+            <button className="button">SIGN IN</button>{" "}
+          </div>{" "}
+          {isServerError ? (
+            <p className="error">Login failed, incorrect credentials!</p>
+          ) : null}
+        </div>
+      </form>
     </div>
   );
 };
