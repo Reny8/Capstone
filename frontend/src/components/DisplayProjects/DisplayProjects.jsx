@@ -2,7 +2,7 @@ import React from "react";
 const DisplayProjects = (props) => {
   return (
     <div>
-      <table className="table table-striped">
+      <table className="table">
         <thead>
           <tr>
             <th >Project Title</th>

@@ -19,32 +19,41 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Username:{" "}
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="text"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-        </label>
-        {isServerError ? (
-          <p className="error">Login failed, incorrect credentials!</p>
-        ) : null}
-        <Link to="/register">Click to register!</Link>
-        <button className="button">LOGIN!</button>
-      </form>
+    <div>
+        <form className="grid" onSubmit={handleSubmit}>
+          <div className="border-box">
+            <h2 >LOGIN HERE</h2>
+            <div className="grid-box">
+              <label>USERNAME:</label>{" "}
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="grid-box">
+              <label>PASSWORD:</label>{" "}
+              <input
+                type="text"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            {isServerError ? (
+              <div className="grid-box">
+                <p className="error">Login failed, incorrect credentials!</p>
+              </div>
+            ) : null}
+            <div className="grid-box">
+              <Link to="/register">REGISTER HERE</Link>{" "}
+              <button className="button">SIGN IN</button>{" "}
+            </div>
+          </div>
+        </form>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 const DisplayTasks = (props) => {
   return (
-    <table className="table table-striped">
+    <table className="table">
       <thead>
         <tr>
           <th>Due Date</th>

@@ -17,7 +17,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
-    <div>
+    <div className="page">
         <Navbar />
         <Routes>
           <Route

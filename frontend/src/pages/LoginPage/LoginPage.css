@@ -1,3 +1,31 @@
 .error {
   color: red;
 }
+.grid {
+  display: grid;
+  grid-template-areas: 
+  "top"
+  "middle"
+  "bottom";
+  padding-top: 17rem;
+}
+.grid-box{
+margin-top: 1rem;
+}
+
+.border-box {
+  background-color:#221203;
+  margin-left: 40rem;
+  margin-right: auto;
+  box-shadow: 3px 3px 6px #6187C2;
+  border-radius: 15px;
+  padding: 2rem  4rem  2rem 4rem
+}
+.border-box input {
+  border-radius: 10px;
+  color: white;
+  background-color: #332313;
+}
+.grid-box label {
+  margin-right: 2rem;
+}
