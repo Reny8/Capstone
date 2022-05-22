@@ -30,6 +30,11 @@ const LogForm = (props) => {
       };
       addStatus(newStatus, parseInt(taskId));
     }
+    setDate("")
+    setProjectId("")
+    setTaskId("")
+    setComment("")
+    setStatus("")
   }
   async function addStatus(update, id) {
     try {
