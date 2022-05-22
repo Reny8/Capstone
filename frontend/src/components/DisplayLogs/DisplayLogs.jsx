@@ -1,15 +1,16 @@
 import React from "react";
+import "./DisplayLogs.css"
 const DisplayLogs = (props) => {
   return (
       <div>
           <table className="table">
         <thead>
             <tr>
-                <th>Log Date</th>
+                <th>Date</th>
                 <th>Project Related</th>
                 <th>Related Task</th>
                 <th>Comment</th>
-                <th>Submited By</th>
+                <th>Assigned</th>
                 <th>Status</th>
             </tr>
         </thead>

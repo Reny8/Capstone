@@ -5,6 +5,8 @@ import DisplayProjects from "../../components/DisplayProjects/DisplayProjects";
 import DisplayTasks from "../../components/DisplayTasks/DisplayTasks";
 import "./HomePage.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
+
+
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [projects, setProjects] = useState([]);

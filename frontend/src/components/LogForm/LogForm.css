@@ -1,0 +1,10 @@
+.logs-container .border-box {
+ margin-left: 0rem;
+}
+
+.border-box select {
+    border-radius: 10px;
+    margin-left: 1rem;
+    color: white;
+    background-color: #332313;
+}

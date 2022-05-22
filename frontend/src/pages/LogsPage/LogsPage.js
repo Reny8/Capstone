@@ -3,6 +3,7 @@ import "./LogsPage.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import DisplayLogs from "../../components/DisplayLogs/DisplayLogs";
+import LogForm from "../../components/LogForm/LogForm";
 const LogsPage = (props) => {
   const [user, token] = useAuth();
   const [logs, setLogs] = useState([]);
@@ -20,8 +21,10 @@ const LogsPage = (props) => {
     setLogs(response.data);
   }
   return (
-    <div>
+    <div className="box">
+        <h2>Logs</h2>
       <DisplayLogs logs={logs} />
+      <LogForm getAllLogs={getAllLogs} logs = {logs}/>
     </div>
   );
 };

@@ -25,10 +25,7 @@ const DisplayTasks = (props) => {
                 <td>{task.status}</td>
               </tr>
             );
-          }
-          else return (
-            <p>No Current Tasks</p>
-          )
+          } else return <h2>No Current Tasks</h2>;
         })}
       </tbody>
     </table>
