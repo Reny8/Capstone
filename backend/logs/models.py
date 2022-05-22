@@ -9,4 +9,5 @@ class Logs(models.Model):
     comment = models.CharField(max_length=200)
     project= models.ForeignKey(Projects, on_delete=models.CASCADE)
     task = models.ForeignKey(Tasks, on_delete=models.CASCADE)
+    status = models.CharField(max_length=10)
 
