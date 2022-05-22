@@ -19,12 +19,26 @@ const LogsPage = (props) => {
       },
     });
     setLogs(response.data);
+    console.log(user);
   }
   return (
     <div className="box">
-        <h2>Logs</h2>
-      <DisplayLogs logs={logs} />
-      <LogForm tasks = {props.tasks} projects = {props.projects} getAllLogs={getAllLogs} logs = {logs}/>
+      <h2>Logs</h2>
+      <DisplayLogs user={user} logs={logs} />
+      <div>
+        {logs.map((log) => {
+          if (log.assigned.id === user.id) {
+            return (
+              <LogForm
+                tasks={props.tasks}
+                projects={props.projects}
+                getAllLogs={getAllLogs}
+                logs={logs}
+              />
+            );
+          }
+        })}
+      </div>
     </div>
   );
 };

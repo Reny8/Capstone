@@ -11,6 +11,7 @@ const RegisterPage = () => {
     password: "",
     firstName: "",
     lastName: "",
+    role: ""
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
@@ -78,6 +79,18 @@ const RegisterPage = () => {
                 type="text"
                 name="password"
                 placeholder=" Enter Password Choice..."
+                value={formData.password}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="grid-box">
+            <label>
+              ROLE:
+              <input
+                type="text"
+                name="role"
+                placeholder=" Enter your Role..."
                 value={formData.password}
                 onChange={handleInputChange}
               />
