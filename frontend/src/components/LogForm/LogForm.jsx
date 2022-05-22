@@ -20,13 +20,27 @@ const LogForm = (props) => {
       assigned_id: parseInt(assignedId),
       project_id: parseInt(projectId),
       task_id: parseInt(taskId),
-    };
-    let newStatus = {
       status: status,
     };
     addLog(newLog);
     console.log(newLog);
-    console.log(newStatus);
+    if (status === "Completed") {
+      let newStatus = {
+        status: status
+      };
+      addStatus(newStatus, parseInt(taskId));
+    }
+  }
+  async function addStatus(update, id) {
+    try {
+      await axios.put(`http://127.0.0.1:8000/api/tasks/status/${id}/`, update, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   }
   async function addLog(createdLog) {
     try {
@@ -60,10 +74,10 @@ const LogForm = (props) => {
               PROJECT RELATED:
               <select onChange={(e) => setProjectId(e.target.value)}>
                 <option value="default">Choose Here</option>
-                {props.logs.map((log, index) => {
+                {props.projects.map((project, index) => {
                   return (
-                    <option key={index * 2} value={log.project.id}>
-                      {log.project.title}
+                    <option key={index * 2} value={project.id}>
+                      {project.title}
                     </option>
                   );
                 })}
@@ -75,10 +89,10 @@ const LogForm = (props) => {
               RELATED TASK:
               <select onChange={(e) => setTaskId(e.target.value)}>
                 <option value="default">Choose Here</option>
-                {props.logs.map((log, index) => {
+                {props.tasks.map((task, index) => {
                   return (
-                    <option key={index * 3} value={log.task.id}>
-                      {log.task.description}
+                    <option key={index * 3} value={task.id}>
+                      {task.description}
                     </option>
                   );
                 })}

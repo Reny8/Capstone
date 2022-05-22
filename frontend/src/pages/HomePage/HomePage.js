@@ -9,56 +9,26 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const HomePage = (props) => {
   const [user, token] = useAuth();
-  const [projects, setProjects] = useState([]);
-  const [tasks, setTasks] = useState([]);
-
-  // GETS ALL THE PROJECTS FROM THE DATABASE
-  async function getAllProjects() {
-    try {
-      let response = await axios.get("http://127.0.0.1:8000/api/projects/", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      setProjects(response.data);
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  // GETS ALL THE TASKS PER PROJECT
-  async function getAllTasks() {
-    try {
-      let response = await axios.get("http://127.0.0.1:8000/api/tasks/", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      setTasks(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
 
   useEffect(() => {
-    getAllProjects();
-    getAllTasks();
+    props.getAllProjects();
+    props.getAllTasks();
   }, [token]);
 
   return (
     <div>
       <div className="welcome">
         <h1> Welcome {user.first_name}!</h1>
-        <SearchBar getAllTasks = {getAllTasks} setTasks = {setTasks} tasks = {tasks}/>
+        <SearchBar getAllTasks = {props.getAllTasks} setTasks = {props.setTasks} tasks = {props.tasks}/>
       </div>
       <div className="box">
         <div>
           <h2>Current Projects</h2>
-          <DisplayProjects projects={projects} />
+          <DisplayProjects projects={props.projects} />
         </div>
         <div>
           <h2>Current Tasks</h2>
-          <DisplayTasks tasks={tasks} />
+          <DisplayTasks tasks={props.tasks} />
         </div>
       </div>
     </div>

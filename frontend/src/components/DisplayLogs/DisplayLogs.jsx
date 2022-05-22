@@ -23,7 +23,7 @@ const DisplayLogs = (props) => {
                         <td>{log.task.description}</td>
                         <td>{log.comment}</td>
                         <td>{log.assigned.first_name} {log.assigned.last_name}</td>
-                        <td>{log.task.status}</td>
+                        <td>{log.status}</td>
                     </tr>
                 )
             })}

@@ -24,7 +24,7 @@ const LogsPage = (props) => {
     <div className="box">
         <h2>Logs</h2>
       <DisplayLogs logs={logs} />
-      <LogForm getAllLogs={getAllLogs} logs = {logs}/>
+      <LogForm tasks = {props.tasks} projects = {props.projects} getAllLogs={getAllLogs} logs = {logs}/>
     </div>
   );
 };
