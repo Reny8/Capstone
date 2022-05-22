@@ -50,3 +50,14 @@ def project_tasks(request,pk):
         task = get_object_or_404(Tasks, pk = pk)
         task.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
+
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_status(request,id):
+    task = get_object_or_404(Tasks,id=id)
+    serializer = TaskSerializer(task,data = request.data, partial=True)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(user = request.user)
+        return Response(serializer.data,status = status.HTTP_200_OK)
