@@ -9,7 +9,7 @@ const LogForm = (props) => {
   const [comment, setComment] = useState("");
   const [taskId, setTaskId] = useState("");
   const [projectId, setProjectId] = useState("");
-  const [assignedId, setAssignedId] = useState("");
+  const [assignedId, setAssignedId] = useState(user.id);
   const [status, setStatus] = useState("");
 
   function createLog(event) {
@@ -93,21 +93,6 @@ const LogForm = (props) => {
                   return (
                     <option key={index * 3} value={task.id}>
                       {task.description}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
-          </div>
-          <div className="grid-box">
-            <label>
-              ASSIGNED:
-              <select onChange={(e) => setAssignedId(e.target.value)}>
-                <option value="default">Choose Here</option>
-                {props.logs.map((log) => {
-                  return (
-                    <option key={log.id} value={log.assigned.id}>
-                      {log.assigned.first_name} {log.assigned.last_name}
                     </option>
                   );
                 })}
