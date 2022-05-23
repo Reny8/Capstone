@@ -7,7 +7,6 @@ import LogForm from "../../components/LogForm/LogForm";
 const LogsPage = (props) => {
   const [user, token] = useAuth();
   const [logs, setLogs] = useState([]);
-
   useEffect(() => {
     getAllLogs();
   }, [token]);
@@ -21,26 +20,31 @@ const LogsPage = (props) => {
     setLogs(response.data);
     console.log(user);
   }
-  return (
+if (user.role === "Software Developer") {
+   return (
     <div className="box">
       <h2>Logs</h2>
       <DisplayLogs user={user} logs={logs} />
       <div>
-        {logs.map((log) => {
-          if (log.assigned.id === user.id) {
-            return (
-              <LogForm
-                tasks={props.tasks}
-                projects={props.projects}
-                getAllLogs={getAllLogs}
-                logs={logs}
-              />
-            );
-          }
-        })}
+        <LogForm
+          tasks={props.tasks}
+          projects={props.projects}
+          getAllLogs={getAllLogs}
+          logs={logs}
+        />
       </div>
     </div>
   );
+}
+else if (user.role === "Project Manager") {
+  return (
+    <div className="box">
+      <h2>Logs</h2>
+      <DisplayLogs user={user} logs={logs} />
+    </div>
+  );
+}
+ 
 };
 
 export default LogsPage;
