@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import DisplayProjects from "../../components/DisplayProjects/DisplayProjects";
 import DisplayTasks from "../../components/DisplayTasks/DisplayTasks";
 import "./HomePage.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
-
+import TasksForm from "../../components/TasksForm/TasksForm";
 
 const HomePage = (props) => {
   const [user, token] = useAuth();
-
+ 
   useEffect(() => {
     props.getAllProjects();
     props.getAllTasks();
@@ -19,7 +18,11 @@ const HomePage = (props) => {
     <div>
       <div className="welcome">
         <h1> Welcome {user.first_name}!</h1>
-        <SearchBar getAllTasks = {props.getAllTasks} setTasks = {props.setTasks} tasks = {props.tasks}/>
+        <SearchBar
+          getAllTasks={props.getAllTasks}
+          setTasks={props.setTasks}
+          tasks={props.tasks}
+        />
       </div>
       <div className="box">
         <div>
@@ -30,6 +33,7 @@ const HomePage = (props) => {
           <h2>Current Tasks</h2>
           <DisplayTasks tasks={props.tasks} />
         </div>
+        <TasksForm  projects={props.projects} />
       </div>
     </div>
   );
