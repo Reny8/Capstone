@@ -13,8 +13,8 @@ const HomePage = (props) => {
     props.getAllProjects();
     props.getAllTasks();
   }, [token]);
-
-  return (
+if (user.role === "Project Manager") {
+    return (
     <div>
       <div className="welcome">
         <h1> Welcome {user.first_name}!</h1>
@@ -32,12 +32,37 @@ const HomePage = (props) => {
         <div>
           <h2>Current Tasks</h2>
           <DisplayTasks tasks={props.tasks} />
-          {}
         </div>
         <TasksForm getAllTasks={props.getAllTasks} token ={props.token} projects={props.projects} />
       </div>
     </div>
   );
+}
+else if (user.role === "Software Developer") {
+    return (
+    <div>
+      <div className="welcome">
+        <h1> Welcome {user.first_name}!</h1>
+        <SearchBar
+          getAllTasks={props.getAllTasks}
+          setTasks={props.setTasks}
+          tasks={props.tasks}
+        />
+      </div>
+      <div className="box">
+        <div>
+          <h2>Current Projects</h2>
+          <DisplayProjects projects={props.projects} />
+        </div>
+        <div>
+          <h2>Current Tasks</h2>
+          <DisplayTasks tasks={props.tasks} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 };
 
 export default HomePage;
