@@ -5,7 +5,7 @@ import DisplayTasks from "../../components/DisplayTasks/DisplayTasks";
 import "./HomePage.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import TasksForm from "../../components/TasksForm/TasksForm";
-
+import ProjectForm from "../../components/ProjectForm/ProjectForm"
 const HomePage = (props) => {
   const [user, token] = useAuth();
  
@@ -34,6 +34,7 @@ if (user.role === "Project Manager") {
           <DisplayTasks tasks={props.tasks} />
         </div>
         <TasksForm getAllTasks={props.getAllTasks} token ={props.token} projects={props.projects} />
+       <ProjectForm user = {user}/>
       </div>
     </div>
   );
