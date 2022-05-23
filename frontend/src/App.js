@@ -31,7 +31,6 @@ function App() {
       });
       setProjects(response.data);
       console.log(response.data)
-      console.log(user);
     } catch (error) {
       console.log(error.message);
     }
@@ -78,9 +77,9 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-      {/* <div>
+      <div>
         <Footer />
-      </div> */}
+      </div>
     </div>
   );
 }
