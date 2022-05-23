@@ -1,4 +1,4 @@
-
+import axios from "axios"
 import React, { useState } from "react";
 const ProjectForm = (props) => {
   const [title, setTitle] = useState("");
@@ -10,8 +10,16 @@ const ProjectForm = (props) => {
           title: title,
           due_date: dueDate
       }
-      console.log(newProject)
+      addProject(newProject)
   }
+async function addProject(addNew) {
+    await axios.post("http://127.0.0.1:8000/api/projects/", addNew,{
+        headers: {
+            Authorization: "Bearer " + props.token
+        }
+    })
+    props.getAllProjects()
+}
   return (
     <div>
       <form onSubmit={createProject}>

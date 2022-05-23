@@ -34,7 +34,7 @@ if (user.role === "Project Manager") {
           <DisplayTasks tasks={props.tasks} />
         </div>
         <TasksForm getAllTasks={props.getAllTasks} token ={props.token} projects={props.projects} />
-       <ProjectForm user = {user}/>
+       <ProjectForm getAllProjects={props.getAllProjects} token = {token} user = {user}/>
       </div>
     </div>
   );
