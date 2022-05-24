@@ -1,30 +1,37 @@
-import axios from "axios"
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+
 const ProjectForm = (props) => {
   const [title, setTitle] = useState("");
   const [dueDate, setDueDate] = useState("");
 
   function createProject() {
-      let newProject = {
-          owner_id: props.user.id,
-          title: title,
-          due_date: dueDate
-      }
-      addProject(newProject)
+    let newProject = {
+      owner_id: props.user.id,
+      title: title,
+      due_date: dueDate,
+    };
+    addProject(newProject);
   }
-async function addProject(addNew) {
-    await axios.post("http://127.0.0.1:8000/api/projects/", addNew,{
+
+
+  async function addProject(addNew) {
+    try {
+      await axios.post("http://127.0.0.1:8000/api/projects/", addNew, {
         headers: {
-            Authorization: "Bearer " + props.token
-        }
-    })
-    props.getAllProjects()
-}
+          Authorization: "Bearer " + props.token,
+        },
+      });
+      props.getAllProjects();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   return (
     <div>
       <form onSubmit={createProject}>
         <div className="border-box">
-            <h2>Create Project</h2>
+          <h2>Create Project</h2>
           <div className="grid-box">
             <label>
               DUE DATE:

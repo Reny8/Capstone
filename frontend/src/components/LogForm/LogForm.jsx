@@ -24,14 +24,14 @@ const LogForm = (props) => {
     addLog(newLog);
     if (status === "Complete") {
       let newStatus = {
-        status: status
+        status: status,
       };
       addStatus(newStatus, parseInt(taskId));
+      setProjectId("");
+      setTaskId("");
+      setComment("");
+      setStatus("");
     }
-    setProjectId("")
-    setTaskId("")
-    setComment("")
-    setStatus("")
   }
   async function addStatus(update, id) {
     try {
@@ -40,7 +40,7 @@ const LogForm = (props) => {
           Authorization: "Bearer " + token,
         },
       });
-      props.getAllTasks()
+      props.getAllTasks();
     } catch (error) {
       console.log(error.message);
     }

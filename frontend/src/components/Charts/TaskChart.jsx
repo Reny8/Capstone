@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Chart } from "react-google-charts";
 const TaskChart = (props) => {
   const [date, setDate] = useState(new Date().toLocaleDateString());
-
   let options = {
     title: "TASK MONITORING PER DAY",
   };

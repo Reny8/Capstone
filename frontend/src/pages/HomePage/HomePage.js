@@ -7,6 +7,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import TasksForm from "../../components/TasksForm/TasksForm";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
+import AssignedForm from "../../components/AssignedForm/AssignedForm";
 const HomePage = (props) => {
   const [user, token] = useAuth();
 
@@ -51,6 +52,9 @@ const HomePage = (props) => {
                 user={user}
               />
             </div>
+          </div>
+          <div>
+            <AssignedForm projects={props.projects} token = {token}/>
           </div>
         </div>
       </div>
