@@ -10,3 +10,11 @@
     color: white;
     background-color: #332313;
 }
+.form-container {
+    display: grid;
+    grid-template-areas: "left right";
+    margin: 0rem;
+}
+.form-container div {
+    margin-left: 0rem;
+}

@@ -21,6 +21,21 @@ function App() {
   const [user, token] = useAuth();
   const [projects, setProjects] = useState([]);
   const [tasks, setTasks] = useState([]);
+  const [logs, setLogs] = useState([]);
+
+  async function getAllLogs() {
+    try {
+        let response = await axios.get("http://127.0.0.1:8000/api/logs/", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    setLogs(response.data);
+    }catch (error) {
+      console.log(error.message)
+    }
+  
+  }
   // GETS ALL THE PROJECTS FROM THE DATABASE
   async function getAllProjects() {
     try {
@@ -30,7 +45,6 @@ function App() {
         },
       });
       setProjects(response.data);
-      console.log(response.data)
     } catch (error) {
       console.log(error.message);
     }
@@ -48,6 +62,7 @@ function App() {
       console.log(error.message);
     }
   }
+
   return (
     <div className="page">
       <Navbar />
@@ -57,11 +72,13 @@ function App() {
           element={
             <PrivateRoute>
               <HomePage
+              logs = {logs}
                 tasks={tasks}
                 projects={projects}
                 setTasks={setTasks}
                 getAllProjects={getAllProjects}
                 getAllTasks={getAllTasks}
+                getAllLogs= {getAllLogs}
               />
             </PrivateRoute>
           }
@@ -70,7 +87,7 @@ function App() {
           path="/logs"
           element={
             <PrivateRoute>
-              <LogsPage tasks={tasks} projects={projects} />
+              <LogsPage getAllTasks = {getAllTasks} getAllLogs= {getAllLogs} logs = {logs} tasks={tasks} projects={projects} />
             </PrivateRoute>
           }
         />

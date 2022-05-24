@@ -5,7 +5,6 @@ import useAuth from "../../hooks/useAuth";
 
 const LogForm = (props) => {
   const [user, token] = useAuth();
-  const [date, setDate] = useState("");
   const [comment, setComment] = useState("");
   const [taskId, setTaskId] = useState("");
   const [projectId, setProjectId] = useState("");
@@ -15,7 +14,7 @@ const LogForm = (props) => {
   function createLog(event) {
     event.preventDefault();
     let newLog = {
-      log_date: date,
+      log_date: new Date().toLocaleDateString(),
       comment: comment,
       assigned_id: parseInt(assignedId),
       project_id: parseInt(projectId),
@@ -23,14 +22,12 @@ const LogForm = (props) => {
       status: status,
     };
     addLog(newLog);
-    console.log(newLog);
-    if (status === "Completed") {
+    if (status === "Complete") {
       let newStatus = {
         status: status
       };
       addStatus(newStatus, parseInt(taskId));
     }
-    setDate("")
     setProjectId("")
     setTaskId("")
     setComment("")
@@ -43,6 +40,7 @@ const LogForm = (props) => {
           Authorization: "Bearer " + token,
         },
       });
+      props.getAllTasks()
     } catch (error) {
       console.log(error.message);
     }
@@ -64,16 +62,6 @@ const LogForm = (props) => {
       <form onSubmit={createLog} className="logs-container">
         <div className="border-box">
           <h2>Fill Out Log</h2>
-          <div className="grid-box">
-            <label>
-              DATE:
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </label>
-          </div>
           <div className="grid-box">
             <label>
               PROJECT RELATED:
@@ -120,7 +108,7 @@ const LogForm = (props) => {
               <select onChange={(e) => setStatus(e.target.value)}>
                 <option value="default">Choose Here</option>
                 <option value="Incomplete">Incomplete</option>
-                <option value="Completed">Completed</option>
+                <option value="Complete">Completed</option>
               </select>
             </label>
           </div>
