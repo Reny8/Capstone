@@ -24,7 +24,7 @@ const Navbar = () => {
           )}
         </li>
         <li><button  onClick={() => navigate("/logs")} className="button">LOGS</button></li>
-        <li><button className="button">AGENDA</button></li>
+        <li><button onClick={()=> navigate("/agenda")} className="button">AGENDA</button></li>
       </ul>
     </div>
   );

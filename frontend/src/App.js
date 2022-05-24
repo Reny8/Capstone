@@ -16,6 +16,7 @@ import Navbar from "./components/NavBar/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
 import LogsPage from "./pages/LogsPage/LogsPage";
 import useAuth from "./hooks/useAuth";
+import AgendaPage from "./pages/AgendaPage/AgendaPage";
 
 function App() {
   const [user, token] = useAuth();
@@ -93,6 +94,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/agenda" element ={<AgendaPage />}/>
       </Routes>
       {/* <div>
         <Footer />

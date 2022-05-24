@@ -14,7 +14,7 @@ const HomePage = (props) => {
   useEffect(() => {
     props.getAllProjects();
     props.getAllTasks();
-    props.getAllLogs()
+    props.getAllLogs();
   }, [token]);
   if (user.role === "Project Manager") {
     return (
@@ -36,14 +36,9 @@ const HomePage = (props) => {
             <h2>Current Tasks</h2>
             <DisplayTasks tasks={props.tasks} />
           </div>
-
           <div className="form-container">
             <div>
-              <TasksForm
-                getAllTasks={props.getAllTasks}
-                token={props.token}
-                projects={props.projects}
-              />
+              <AssignedForm projects={props.projects} token={token} />
             </div>
             <div>
               <ProjectForm
@@ -53,9 +48,13 @@ const HomePage = (props) => {
               />
             </div>
           </div>
-          <div>
-            <AssignedForm projects={props.projects} token = {token}/>
-          </div>
+            <div>
+              <TasksForm
+                getAllTasks={props.getAllTasks}
+                token={props.token}
+                projects={props.projects}
+              />
+            </div>
         </div>
       </div>
     );
@@ -80,8 +79,8 @@ const HomePage = (props) => {
             <DisplayTasks tasks={props.tasks} />
           </div>
         </div>{" "}
-        <div style={{ marginLeft: "15rem"}}>
-          <TaskChart logs = {props.logs} tasks={props.tasks}/>
+        <div style={{ marginLeft: "15rem" }}>
+          <TaskChart logs={props.logs} tasks={props.tasks} />
         </div>
       </div>
     );
