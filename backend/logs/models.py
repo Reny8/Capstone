@@ -4,7 +4,7 @@ from projects.models import Projects
 from tasks.models import Tasks
 
 class Logs(models.Model):
-    log_date = models.DateField()
+    log_date = models.CharField(max_length=50)
     assigned = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     project= models.ForeignKey(Projects, on_delete=models.CASCADE)
