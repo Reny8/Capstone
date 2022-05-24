@@ -8,6 +8,7 @@ import TasksForm from "../../components/TasksForm/TasksForm";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
+import CompletionChart from "../../components/Chart/CompletionChart";
 const HomePage = (props) => {
   const [user, token] = useAuth();
 
@@ -54,6 +55,9 @@ const HomePage = (props) => {
                 token={props.token}
                 projects={props.projects}
               />
+            </div>
+            <div>
+            <CompletionChart tasks={props.tasks} projects={props.projects}/>
             </div>
         </div>
       </div>
