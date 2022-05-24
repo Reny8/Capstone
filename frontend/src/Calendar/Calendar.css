@@ -1,0 +1,17 @@
+div.rbc-day-bg.rbc-today {
+    background-image: linear-gradient(#2E182A,#375680)
+}
+span.rbc-btn-group button {
+    color: white;
+}
+span.rbc-btn-group button.rbc-active {
+    color: black;
+}
+
+div.rbc-day-bg.rbc-off-range-bg {
+    background-color: darkgray;
+}
+
+button.rbc-button-link {
+    color: lightskyblue
+}

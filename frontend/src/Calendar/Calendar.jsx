@@ -4,39 +4,48 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-big-calendar/lib/css/react-big-calendar.css"
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./Calendar.css"
+
 const CalendarDisplay = (props) => {
-  const locales = {
-    "en-US": require("date-fns/locale/en-US"),
-  };
-  const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-  });
-  const events = [
-    {
-      title: "Big Meeting",
-      start: new Date(2022, 5, 0),
-      end: new Date(2022, 5, 0),
-    },
-    {
-      title: "Vacation",
-      start: new Date(2022, 5, 0),
-      end: new Date(2022, 5, 0),
-    },
-  ];
+    const locales = {
+      "en-US": require("date-fns/locale/en-US"),
+    };
+    const localizer = dateFnsLocalizer({
+      format,
+      parse,
+      startOfWeek,
+      getDay,
+      locales,
+    });
+    function handleEvents() {
+        let projectTitlesAndDates = props.projects.map((project)=>{
+            return {
+                title: `${project.title} Project`,
+                start: new Date(project.due_date),
+                end: new Date(project.due_date)
+            }
+        })
+        let taskTitlesAndDates = props.tasks.map((task)=>{
+            return {
+                title: `Task:${task.description}`,
+                start: new Date(task.due_date),
+                end: new Date(task.due_date)
+            }
+        })
+    console.log(taskTitlesAndDates)
+    const events = [projectTitlesAndDates, ...taskTitlesAndDates]
+    return events
+    }
   return (
     <div>
+      <h2 style={{marginLeft: "9rem"}}>Team Agenda</h2>
       <Calendar
         localizer={localizer}
-        events={events}
+        events={handleEvents()}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: "500px", marginLeft: "15rem", paddingTop: "2rem"}}
+        style={{ height: "500px", marginLeft: "15rem", paddingTop: "2rem", padding: "2rem"}}
       />
     </div>
   );
