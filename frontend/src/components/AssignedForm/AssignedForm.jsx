@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const AssignedForm = (props) => {
   const [developers, setDevelopers] = useState([]);
-  const [assignedUser, setAssignedUser] = useState("");
-  const [projectAssigned, setProjectAssigned] = useState("");
+  const [assignedUser, setAssignedUser] = useState();
+  const [projectAssigned, setProjectAssigned] = useState();
 
   useEffect(() => {
     getDevelopers();
@@ -24,20 +24,42 @@ const AssignedForm = (props) => {
       console.log(error.message);
     }
   }
-  function assignProject() {
-      console.log(assignedUser)
-      console.log(projectAssigned)
+  async function assignProject(project, assigned) {
+      try {
+          let response = await axios.put(
+      `http://127.0.0.1:8000/api/projects/${project}/${assigned}/`,{},
+      {
+        headers: {
+          Authorization: "Bearer " + props.token,
+        },
+      }
+    );
+    if (response.status === 202) {
+      alert("Successfully Assigned");
+    }
+      }
+      catch (error) {
+          console.log(error.message)
+          alert("User has already been assigned to this project. Try Again")
+      }
+    
+  }
+
+  function handleClick(event) { 
+    event.preventDefault();
+    assignProject(parseInt(projectAssigned), parseInt(assignedUser));
+    
   }
   return (
     <div>
-      <form onSubmit={assignProject}>
+      <form onSubmit={handleClick}>
         <div className="border-box">
           <h2>Assign A Project</h2>
           <div className="grid-box">
             <label>
               PROJECT RELATED:
               <select
-                onClick={(e) => setProjectAssigned(parseInt(e.target.value))}
+                onClick={(e) => setProjectAssigned(e.target.value)}
               >
                 <option value="default">Choose Here</option>
                 {props.projects.map((project) => {
@@ -54,7 +76,7 @@ const AssignedForm = (props) => {
             <label>
               ASSIGN TO:
               <select
-                onClick={(e) => setAssignedUser(parseInt(e.target.value))}
+                onClick={(e) => setAssignedUser(e.target.value)}
               >
                 <option value="default">Choose Here</option>
                 {developers.map((developer) => {
@@ -68,7 +90,7 @@ const AssignedForm = (props) => {
             </label>
           </div>
           <div className="grid-box">
-              <button className="button">SUBMIT</button>
+            <button className="button">SUBMIT</button>
           </div>
         </div>
       </form>
