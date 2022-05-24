@@ -53,11 +53,16 @@ def project_tasks(request,pk):
 
 
 
-@api_view(['PUT'])
+@api_view(['PUT','GET'])
 @permission_classes([IsAuthenticated])
-def update_status(request,id):
-    task = get_object_or_404(Tasks,id=id)
-    serializer = TaskSerializer(task,data = request.data, partial=True)
-    if serializer.is_valid(raise_exception=True):
-        serializer.save(user = request.user)
-        return Response(serializer.data,status = status.HTTP_200_OK)
+def status_details(request,id):
+    if request.method == 'GET': 
+        filtered_tasks = Tasks.objects.filter(project__owner = id)
+        serializer = TaskSerializer(filtered_tasks, many=True)
+        return Response(serializer.data, status= status.HTTP_200_OK)
+    elif request.method == 'PUT': 
+        task = get_object_or_404(Tasks,id=id)
+        serializer = TaskSerializer(task,data = request.data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user = request.user)
+            return Response(serializer.data,status = status.HTTP_200_OK)
