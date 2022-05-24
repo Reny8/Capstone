@@ -3,7 +3,10 @@ from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.password_validation import validate_password
 from .models import User
-
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields =['first_name', 'last_name','email','role']
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -17,7 +20,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token["first_name"] = user.first_name
         token["last_name"] = user.last_name
         token["role"] = user.role
-
         return token
 
 

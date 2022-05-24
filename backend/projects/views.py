@@ -6,6 +6,7 @@ from .models import Projects
 from .serializers import ProjectSerializer
 from rest_framework.permissions import IsAuthenticated
 from authentication.models import User
+from authentication.serializers import UserSerializer
 
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
@@ -40,3 +41,10 @@ def add_assigned_user(request,pk, id):
         serializer = ProjectSerializer(update_project)
         return Response(serializer.data, status.HTTP_202_ACCEPTED)
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_all_developers(request):
+    if request.method == 'GET':
+        users = User.objects.filter(role = "Software Developer")
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
