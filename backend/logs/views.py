@@ -26,9 +26,3 @@ def log_details(request):
             return Response(serializer.data, status= status.HTTP_201_CREATED)
 
   
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def team_logs(request,pk):
-    logs = Logs.objects.filter(project__owner = pk)
-    serializer = LogSerializer(logs, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
