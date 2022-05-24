@@ -3,7 +3,7 @@ import format from "date-fns/format";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
-import React, { useState } from "react";
+import React from "react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./Calendar.css"
 
@@ -26,6 +26,7 @@ const CalendarDisplay = (props) => {
                 end: new Date(project.due_date)
             }
         })
+        console.log(projectTitlesAndDates)
         let taskTitlesAndDates = props.tasks.map((task)=>{
             return {
                 title: `Task:${task.description}`,
@@ -34,7 +35,7 @@ const CalendarDisplay = (props) => {
             }
         })
     console.log(taskTitlesAndDates)
-    const events = [projectTitlesAndDates, ...taskTitlesAndDates]
+    const events = [...taskTitlesAndDates,...projectTitlesAndDates ]
     return events
     }
   return (
