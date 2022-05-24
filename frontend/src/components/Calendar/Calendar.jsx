@@ -39,8 +39,8 @@ const CalendarDisplay = (props) => {
     return events
     }
   return (
-    <div>
-      <h2 style={{marginLeft: "9rem"}}>Team Agenda</h2>
+    <div className="calendar-box">
+      <h2>Team Agenda</h2>
       <Calendar
         localizer={localizer}
         events={handleEvents()}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Chart } from "react-google-charts";
 
 export const options = {
@@ -16,14 +16,22 @@ export const options = {
 };
 
 const CompletionChart = (props) => {
-    function handleData() {
-        const data = [
-            ["Tasks", "How Many Completed"],
-            ["Task Not Done", 11],
-            ["Task Completed", 2],
-          ];
-        return data
-    }
+//   const [projectIdAndTitle, setProjectsIdAndTitle] = useState([]);
+  function handleData() {
+    // let projectIdsAndTitles = props.projects.map((project) => {
+    //   return {
+    //     id: project.id,
+    //     title: project.title,
+    //   };
+    // });
+    // console.log(projectIds);
+    const data = [
+      ["Tasks", "How Many Completed"],
+      ["Task Not Done", 11],
+      ["Task Completed", 2],
+    ];
+    return data;
+  }
   return (
     <div>
       <Chart

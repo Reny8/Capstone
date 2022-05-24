@@ -18,3 +18,10 @@ button.rbc-button-link {
 div.rbc-header.rbc-today {
     background-image: linear-gradient(#2E182A,#375680)
 }
+.calendar-box {
+    filter: drop-shadow(2px 4px 8px #000)
+}
+.calendar-box h2 {
+    margin-left: 9rem;
+    padding-top: 1rem;
+}

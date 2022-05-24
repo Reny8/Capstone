@@ -56,10 +56,10 @@ const HomePage = (props) => {
                 projects={props.projects}
               />
             </div>
+        </div>
             <div>
             <CompletionChart tasks={props.tasks} projects={props.projects}/>
             </div>
-        </div>
       </div>
     );
   } else if (user.role === "Software Developer") {
