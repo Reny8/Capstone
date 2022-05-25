@@ -33,31 +33,35 @@ const HomePage = (props) => {
             <h2>Current Projects</h2>
             <DisplayProjects projects={props.projects} />
           </div>
-            <div>
-              <ProjectForm
-                getAllProjects={props.getAllProjects}
-                token={token}
-                user={user}
-              />
-            </div>
-            <div>
-              <AssignedForm projects={props.projects} token={token} />
-            </div>
+          <div>
+            <ProjectForm
+              getAllProjects={props.getAllProjects}
+              token={token}
+              user={user}
+            />
+          </div>
+          <div>
+            <AssignedForm projects={props.projects} token={token} />
+          </div>
           <div>
             <h2>Current Tasks</h2>
             <DisplayTasks tasks={props.tasks} />
           </div>
+          <div>
+            <TasksForm
+              getAllTasks={props.getAllTasks}
+              token={props.token}
+              projects={props.projects}
+            />
+          </div>
+        </div>
+        {props.projects.map((project) => {
+          return (
             <div>
-              <TasksForm
-                getAllTasks={props.getAllTasks}
-                token={props.token}
-                projects={props.projects}
-              />
+              <CompletionChart projectId={project.id} projectTitle={project.title} tasks={props.tasks} />
             </div>
-        </div>
-        <div>
-          <CompletionChart tasks={props.tasks} projects={props.projects} />
-        </div>
+          );
+        })}
       </div>
     );
   } else if (user.role === "Software Developer") {

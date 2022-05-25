@@ -1,40 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
-
-export const options = {
-  title: "Project Completion",
-  backgroundColor: "transparent",
-  titleTextStyle: {
-    color: "white",
-  },
-  legend: {
-    textStyle: {
+const CompletionChart = (props) => {
+  const [completed, setCompleted] = useState([]);
+  const [notDone, setNotDone] = useState([]);
+  const options = {
+    title: `${props.projectTitle} Completion`,
+    backgroundColor: "transparent",
+    titleTextStyle: {
       color: "white",
     },
-  },
-  is3D: true,
-};
+    legend: {
+      textStyle: {
+        color: "white",
+      },
+    },
+    is3D: true,
+  };
 
-const CompletionChart = (props) => {
-//   const [projectIdAndTitle, setProjectsIdAndTitle] = useState([]);
+  useEffect(() => {
+    let taskCompleted = props.tasks.filter(
+      (task) =>
+        task.status === "Complete" && task.project.id === props.projectId
+    );
+    setCompleted(taskCompleted.length);
+    let taskNotDone = props.tasks.filter(
+      (task) =>
+        task.status === "Incomplete" && task.project.id === props.projectId
+    );
+    setNotDone(taskNotDone.length);
+  }, []);
   function handleData() {
-    // let projectIdsAndTitles = props.projects.map((project) => {
-    //   return {
-    //     id: project.id,
-    //     title: project.title,
-    //   };
-    // });
-    // console.log(projectIds);
     const data = [
       ["Tasks", "How Many Completed"],
-      ["Task Not Done", 11],
-      ["Task Completed", 2],
+      ["Task Not Done", notDone],
+      ["Task Completed", completed],
     ];
     return data;
   }
   return (
     <div>
       <Chart
+        style={{ marginLeft: "5rem" }}
         chartType="PieChart"
         data={handleData()}
         options={options}
