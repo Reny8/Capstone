@@ -40,12 +40,10 @@ const CompletionChart = (props) => {
   return (
     <div>
       <Chart
-        style={{ marginLeft: "5rem" }}
         chartType="PieChart"
         data={handleData()}
         options={options}
         width={"100%"}
-        height={"400px"}
       />
     </div>
   );

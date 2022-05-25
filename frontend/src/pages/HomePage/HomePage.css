@@ -18,9 +18,9 @@
 .form-container div {
   margin-left: 0rem;
 }
-/* .form-container {
-  display: grid;
-  grid-template-areas:
-    "topleft topright"
-    "bottom";
-} */
+.chart-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 3rem
+}

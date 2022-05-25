@@ -26,7 +26,6 @@ const CalendarDisplay = (props) => {
                 end: new Date(project.due_date)
             }
         })
-        console.log(projectTitlesAndDates)
         let taskTitlesAndDates = props.tasks.map((task)=>{
             return {
                 title: `Task:${task.description}`,
@@ -34,7 +33,6 @@ const CalendarDisplay = (props) => {
                 end: new Date(task.due_date)
             }
         })
-    console.log(taskTitlesAndDates)
     const events = [...taskTitlesAndDates,...projectTitlesAndDates ]
     return events
     }

@@ -27,8 +27,22 @@ const HomePage = (props) => {
             setTasks={props.setTasks}
             tasks={props.tasks}
           />
-        </div>
+        </div> 
         <div className="box">
+        <h2>Project Completion</h2>
+        <div className="chart-grid-container">
+          {props.projects.map((project) => {
+            return (
+              <div>
+                <CompletionChart
+                  projectId={project.id}
+                  projectTitle={project.title}
+                  tasks={props.tasks}
+                />
+              </div>
+            );
+          })}
+        </div>
           <div>
             <h2>Current Projects</h2>
             <DisplayProjects projects={props.projects} />
@@ -55,13 +69,7 @@ const HomePage = (props) => {
             />
           </div>
         </div>
-        {props.projects.map((project) => {
-          return (
-            <div>
-              <CompletionChart projectId={project.id} projectTitle={project.title} tasks={props.tasks} />
-            </div>
-          );
-        })}
+       
       </div>
     );
   } else if (user.role === "Software Developer") {
