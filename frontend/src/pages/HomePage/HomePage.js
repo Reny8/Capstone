@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios"
 import useAuth from "../../hooks/useAuth";
 import DisplayProjects from "../../components/DisplayProjects/DisplayProjects";
 import DisplayTasks from "../../components/DisplayTasks/DisplayTasks";
@@ -11,12 +12,29 @@ import AssignedForm from "../../components/AssignedForm/AssignedForm";
 import CompletionChart from "../../components/Charts/CompletionChart";
 const HomePage = (props) => {
   const [user, token] = useAuth();
-
+  const [developers, setDevelopers] = useState([]);
+  const [assignedDeveloper, setAssignedDeveloper] = useState()
   useEffect(() => {
+    getDevelopers();
     props.getAllProjects();
     props.getAllTasks();
     props.getAllLogs();
   }, [token]);
+  async function getDevelopers() {
+    try {
+      let response = await axios.get(
+        "http://127.0.0.1:8000/api/projects/developers/",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      setDevelopers(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   if (user.role === "Project Manager") {
     return (
       <div>
@@ -55,11 +73,11 @@ const HomePage = (props) => {
             />
           </div>
           <div>
-            <AssignedForm projects={props.projects} token={token} />
+            <AssignedForm developers = {developers} projects={props.projects} token={token} />
           </div>
           <div>
             <h2>Current Tasks</h2>
-            <DisplayTasks getAllTasks={props.getAllTasks} token = {token} user = {user} tasks={props.tasks} />
+            <DisplayTasks developers ={developers} projects ={props.projects} getAllTasks={props.getAllTasks} token = {token} user = {user} tasks={props.tasks} />
           </div>
           <div>
             <TasksForm

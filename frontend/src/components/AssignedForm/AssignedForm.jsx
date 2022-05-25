@@ -1,30 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import "./AssignedForm.css"
 const AssignedForm = (props) => {
-  const [developers, setDevelopers] = useState([]);
   const [assignedUser, setAssignedUser] = useState();
   const [projectAssigned, setProjectAssigned] = useState();
 
-  useEffect(() => {
-    getDevelopers();
-  }, [props.token]);
 
-  async function getDevelopers() {
-    try {
-      let response = await axios.get(
-        "http://127.0.0.1:8000/api/projects/developers/",
-        {
-          headers: {
-            Authorization: "Bearer " + props.token,
-          },
-        }
-      );
-      setDevelopers(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
   async function assignProject(project, assigned) {
       try {
           let response = await axios.put(
@@ -80,7 +61,7 @@ const AssignedForm = (props) => {
                 onClick={(e) => setAssignedUser(e.target.value)}
               >
                 <option value="default">Choose Here</option>
-                {developers.map((developer) => {
+                {props.developers.map((developer) => {
                   return (
                     <option key={developer.id + 2} value={developer.id}>
                       {developer.first_name} {developer.last_name}
