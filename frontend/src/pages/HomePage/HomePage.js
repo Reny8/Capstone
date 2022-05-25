@@ -59,7 +59,7 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Current Tasks</h2>
-            <DisplayTasks user = {user} tasks={props.tasks} />
+            <DisplayTasks getAllTasks={props.getAllTasks} token = {token} user = {user} tasks={props.tasks} />
           </div>
           <div>
             <TasksForm

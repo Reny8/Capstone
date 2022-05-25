@@ -1,5 +1,26 @@
 import React from "react";
+import axios from "axios"
 const DisplayTasks = (props) => {
+  function handleDeleteClick(id, task) {
+    let finalAnswer = prompt(`You have selected:\nTask: ${task}\nAre you sure you would like to delete this task?`).toLowerCase()
+    if (finalAnswer === "yes") {
+      deleteTask(id)
+    }
+  }
+  async function deleteTask(id) {
+    try {
+      let response = await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`,{
+        headers: {
+          Authorization: "Bearer " + props.token 
+        }
+      })
+    props.getAllTasks()
+    alert("Task have been successfully deleted!")
+    }
+    catch (error) {
+      console.log(error.message)
+    }
+  }
   if (props.tasks.length > 0 && props.user.role === "Project Manager") {
     return (
       <table className="table">
@@ -24,7 +45,7 @@ const DisplayTasks = (props) => {
                   <td>{task.description}</td>
                   <td>{task.status}</td>
                   <td><button className="button">UPDATE</button></td>
-                  <td><button className="button">DELETE</button></td>
+                  <td><button onClick={()=> handleDeleteClick(task.id, task.description)}className="button">DELETE</button></td>
                 </tr>
               );
             }
