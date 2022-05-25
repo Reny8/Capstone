@@ -8,7 +8,7 @@ import TasksForm from "../../components/TasksForm/TasksForm";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
-import CompletionChart from "../../components/Chart/CompletionChart";
+import CompletionChart from "../../components/Charts/CompletionChart";
 const HomePage = (props) => {
   const [user, token] = useAuth();
 
@@ -33,14 +33,6 @@ const HomePage = (props) => {
             <h2>Current Projects</h2>
             <DisplayProjects projects={props.projects} />
           </div>
-          <div>
-            <h2>Current Tasks</h2>
-            <DisplayTasks tasks={props.tasks} />
-          </div>
-          <div className="form-container">
-            <div>
-              <AssignedForm projects={props.projects} token={token} />
-            </div>
             <div>
               <ProjectForm
                 getAllProjects={props.getAllProjects}
@@ -48,6 +40,12 @@ const HomePage = (props) => {
                 user={user}
               />
             </div>
+            <div>
+              <AssignedForm projects={props.projects} token={token} />
+            </div>
+          <div>
+            <h2>Current Tasks</h2>
+            <DisplayTasks tasks={props.tasks} />
           </div>
             <div>
               <TasksForm
@@ -57,9 +55,9 @@ const HomePage = (props) => {
               />
             </div>
         </div>
-            <div>
-            <CompletionChart tasks={props.tasks} projects={props.projects}/>
-            </div>
+        <div>
+          <CompletionChart tasks={props.tasks} projects={props.projects} />
+        </div>
       </div>
     );
   } else if (user.role === "Software Developer") {

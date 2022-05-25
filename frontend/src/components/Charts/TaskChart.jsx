@@ -4,6 +4,25 @@ const TaskChart = (props) => {
   const [date, setDate] = useState(new Date().toLocaleDateString());
   let options = {
     title: "TASK MONITORING PER DAY",
+    backgroundColor: "transparent",
+    titleTextStyle: {
+      color: "white",
+    },
+    legend: {
+      textStyle: {
+        color: "white",
+      },
+    },
+    vAxis: {
+      textStyle: {
+        color: "white",
+      },
+    },
+    hAxis: {
+      textStyle: {
+        color: "white",
+      },
+    },
   };
   function chartTaskData() {
     let logCompleted = props.logs.filter((log) => {

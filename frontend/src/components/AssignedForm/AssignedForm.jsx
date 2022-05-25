@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./AssignedForm.css"
 const AssignedForm = (props) => {
   const [developers, setDevelopers] = useState([]);
   const [assignedUser, setAssignedUser] = useState();
@@ -51,8 +52,8 @@ const AssignedForm = (props) => {
     
   }
   return (
-    <div>
-      <form onSubmit={handleClick}>
+    <div >
+      <form className="assigned-form-container"onSubmit={handleClick}>
         <div className="border-box">
           <h2>Assign A Project</h2>
           <div className="grid-box">

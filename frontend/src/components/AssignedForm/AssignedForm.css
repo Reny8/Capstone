@@ -1,0 +1,26 @@
+.assigned-form-container .border-box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0rem;
+    padding:1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.assigned-form-container .border-box button {
+    width: 255px;
+    margin-left: 0rem;
+    margin-bottom: 1rem;
+}
+.assigned-form-container .grid-box label {
+    display: flex;
+    align-items: stretch;
+}
+.assigned-form-container .grid-box select {
+    margin-left: 1rem
+}
+.assigned-form-container .border-box h2 {
+    padding-left: 0rem;
+}

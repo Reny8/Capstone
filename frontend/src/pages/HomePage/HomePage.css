@@ -1,20 +1,26 @@
 .welcome {
-    display: flex;
-    margin-left: 14.5rem;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  margin-left: 14.5rem;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .welcome input {
-    border-radius: 10px;
-    margin-left: 1rem;
-    color: white;
-    background-color: #332313;
+  border-radius: 10px;
+  margin-left: 1rem;
+  color: white;
+  background-color: #332313;
 }
 .form-container {
-    display: grid;
-    grid-template-areas: "left right";
-    margin: 0rem;
+  display: grid;
+  grid-template-areas: "left right";
+  margin: 0rem;
 }
 .form-container div {
-    margin-left: 0rem;
+  margin-left: 0rem;
 }
+/* .form-container {
+  display: grid;
+  grid-template-areas:
+    "topleft topright"
+    "bottom";
+} */

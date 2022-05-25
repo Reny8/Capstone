@@ -29,7 +29,7 @@ const ProjectForm = (props) => {
   }
   return (
     <div>
-      <form onSubmit={createProject}>
+      <form className="assigned-form-container" onSubmit={createProject}>
         <div className="border-box">
           <h2>Create Project</h2>
           <div className="grid-box">

@@ -38,7 +38,7 @@ const TasksForm = (props) => {
   }
   return (
     <div>
-      <form onSubmit={createTask}>
+      <form className="assigned-form-container" onSubmit={createTask}>
         <div className="border-box">
           <h2>Create Task</h2>
           <div className="grid-box">
