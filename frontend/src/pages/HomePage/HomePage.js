@@ -59,7 +59,7 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Current Tasks</h2>
-            <DisplayTasks tasks={props.tasks} />
+            <DisplayTasks user = {user} tasks={props.tasks} />
           </div>
           <div>
             <TasksForm
@@ -90,7 +90,7 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Current Tasks</h2>
-            <DisplayTasks tasks={props.tasks} />
+            <DisplayTasks user={user} tasks={props.tasks} />
           </div>
         </div>{" "}
         <div style={{ marginLeft: "15rem" }}>

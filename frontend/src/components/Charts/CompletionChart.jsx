@@ -32,8 +32,8 @@ const CompletionChart = (props) => {
   function handleData() {
     const data = [
       ["Tasks", "How Many Completed"],
-      ["Task Not Done", notDone],
       ["Task Completed", completed],
+      ["Task Not Done", notDone],
     ];
     return data;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 const DisplayTasks = (props) => {
-  if (props.tasks.length > 0) {
+  if (props.tasks.length > 0 && props.user.role === "Project Manager") {
     return (
       <table className="table">
         <thead>
@@ -14,7 +14,39 @@ const DisplayTasks = (props) => {
         </thead>
         <tbody>
           {props.tasks.map((task) => {
-            if (props.tasks !== []) {
+              return (
+                <tr key={task.id}>
+                  <td>{task.due_date}</td>
+                  <td>{task.project.title}</td>
+                  <td>
+                    {task.assigned.first_name} {task.assigned.last_name}
+                  </td>
+                  <td>{task.description}</td>
+                  <td>{task.status}</td>
+                  <td><button className="button">UPDATE</button></td>
+                  <td><button className="button">DELETE</button></td>
+                </tr>
+              );
+            }
+          )}
+        </tbody>
+      </table>
+    );
+  } 
+  else if (props.tasks.length > 0 && props.user.role === "Software Developer"){
+    return (
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Due Date</th>
+            <th>Related Project</th>
+            <th>Assigned</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.tasks.map((task) => {
               return (
                 <tr key={task.id}>
                   <td>{task.due_date}</td>
@@ -26,12 +58,13 @@ const DisplayTasks = (props) => {
                   <td>{task.status}</td>
                 </tr>
               );
-            } else return <h2>No Current Tasks</h2>;
-          })}
+            }
+          )}
         </tbody>
       </table>
     );
-  } else
+  } 
+  else
     return (
       <div className="projects-container">
         <div className="border-box">
