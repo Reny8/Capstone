@@ -16,10 +16,13 @@ button.rbc-button-link {
     color: lightskyblue
 }
 div.rbc-header.rbc-today {
-    background-image: linear-gradient(#2E182A,#375680)
+    background-image: linear-gradient(#375680,#2E182A)
 }
 
 .calendar-box h2 {
     margin-left: 9rem;
     padding-top: 1rem;
+}
+div.rbc-day-slot.rbc-time-column.rbc-now.rbc-today {
+    background-image: linear-gradient(#2c4466, #375680) 
 }
