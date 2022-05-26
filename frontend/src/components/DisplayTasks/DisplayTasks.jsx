@@ -81,7 +81,7 @@ const DisplayTasks = (props) => {
   }
   async function deleteTask(id) {
     try {
-      let response = await axios.delete(
+      await axios.delete(
         `http://127.0.0.1:8000/api/tasks/${id}/`,
         {
           headers: {

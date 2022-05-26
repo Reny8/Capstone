@@ -13,7 +13,6 @@ import CompletionChart from "../../components/Charts/CompletionChart";
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [developers, setDevelopers] = useState([]);
-  const [assignedDeveloper, setAssignedDeveloper] = useState()
   useEffect(() => {
     getDevelopers();
     props.getAllProjects();
