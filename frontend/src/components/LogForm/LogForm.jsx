@@ -9,7 +9,7 @@ const LogForm = (props) => {
   const [taskId, setTaskId] = useState("");
   const [projectId, setProjectId] = useState("");
   const [status, setStatus] = useState("");
-  const assignedId =  user.id
+  const assignedId = user.id;
 
   function createLog(event) {
     event.preventDefault();
@@ -17,8 +17,8 @@ const LogForm = (props) => {
       log_date: new Date().toLocaleDateString(),
       comment: comment,
       assigned_id: parseInt(assignedId),
-      project_id: parseInt(projectId),
-      task_id: parseInt(taskId),
+      project_id: projectId,
+      task_id: taskId,
       status: status,
     };
     addLog(newLog);
@@ -65,7 +65,7 @@ const LogForm = (props) => {
           <div className="grid-box">
             <label>
               PROJECT RELATED:
-              <select onChange={(e) => setProjectId(e.target.value)}>
+              <select onClick={(e) => setProjectId(parseInt(e.target.value))}>
                 <option value="default">Choose Here</option>
                 {props.projects.map((project, index) => {
                   return (
@@ -80,15 +80,18 @@ const LogForm = (props) => {
           <div className="grid-box">
             <label>
               RELATED TASK:
-              <select onChange={(e) => setTaskId(e.target.value)}>
+              <select onChange={(e) => setTaskId(parseInt(e.target.value))}>
                 <option value="default">Choose Here</option>
-                {props.tasks.map((task, index) => {
-                  return (
-                    <option key={index * 3} value={task.id}>
-                      {task.description}
-                    </option>
-                  );
-                })}
+                {props.tasks.filter(
+                  (task => task.project.id === projectId)).map(
+                    (task,index) => {
+                      return (
+                        <option key={index * 3} value={task.id}>
+                          {task.description}
+                        </option>
+                      );
+                    }
+                  )}
               </select>
             </label>
           </div>
