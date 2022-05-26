@@ -12,7 +12,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <h2><img src={Logo} style={{height: "3rem"}}/>Pro Tracker</h2>
+            <h2><img src={Logo} style={{height: "3rem"}}/>Project Tracker</h2>
           </Link>
         </li>
         <li><button onClick={() => navigate("/")} className="button">HOME</button></li>
