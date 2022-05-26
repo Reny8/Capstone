@@ -39,6 +39,7 @@ const DisplayTasks = (props) => {
         if (project.title.toLowerCase() === newValue) {
           return true;
         }
+        return newProject
       });
       if (newProject.length > 0) {
         let finalResult = newProject.map((project) => {
@@ -58,6 +59,7 @@ const DisplayTasks = (props) => {
         ) {
           return true;
         }
+        return developersFound
       });
       if (developersFound.length > 0) {
         let finalResult = developersFound.map((developer) => {

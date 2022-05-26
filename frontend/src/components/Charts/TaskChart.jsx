@@ -29,6 +29,7 @@ const TaskChart = (props) => {
       if (log.status === "Complete" && log.log_date === date) {
         return true;
       }
+      return logCompleted;
     });
     let data = [
       ["Date", "Tasks Completed"],
