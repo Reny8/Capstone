@@ -2,11 +2,16 @@ import React from "react";
 import axios from "axios";
 const DisplayTasks = (props) => {
   function handleDeleteClick(id, task) {
-    let finalAnswer = prompt(
+    try {
+         let finalAnswer = prompt(
       `You have selected:\nTask: ${task}\nAre you sure you would like to delete this task?`
     ).toLowerCase();
     if (finalAnswer === "yes") {
       deleteTask(id);
+    }
+    }
+    catch (error) {
+      console.log("Delete has been cancelled")
     }
   }
 
@@ -18,11 +23,14 @@ const DisplayTasks = (props) => {
       status: task.status,
       project_id: task.project.id,
     };
-    let answer = prompt(
+    try {
+     let answer = prompt(
       `You have selected:\nTask: ${currentTask.description}\nWhat would you like to edit?\nType date, project, assigned or description`
     ).toLowerCase();
-
-    if (answer === "date") {
+    if (answer === null) {
+      console.log("Update has been cancelled")
+    }
+    else if (answer === "date") {
       let newValue = prompt(`Enter the new ${answer} value`);
       currentTask.due_date = newValue;
     } else if (answer === "project") {
@@ -64,7 +72,11 @@ const DisplayTasks = (props) => {
       let newValue = prompt(`Enter the new ${answer} value`);
       currentTask.description = newValue;
     }
-    submitUpdate(task.id, currentTask);
+    submitUpdate(task.id, currentTask); 
+    }
+    catch (error) {
+      console.log("Update has been cancelled")
+    }
   }
 
   async function submitUpdate(id, update) {
