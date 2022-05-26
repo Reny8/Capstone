@@ -1,5 +1,5 @@
 import React from "react";
-import "./DisplayProjects.css"
+import "./DisplayProjects.css";
 const DisplayProjects = (props) => {
   if (props.projects.length > 0) {
     return (

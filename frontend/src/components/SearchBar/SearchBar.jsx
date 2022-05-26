@@ -17,6 +17,8 @@ const SearchBar = (props) => {
         task.assigned.last_name.toLowerCase() === search.toLowerCase()
       ) {
         return true;
+      } else if (task.project.title.toLowerCase() === search.toLowerCase()) {
+        return true;
       }
     });
     props.setTasks(response);
