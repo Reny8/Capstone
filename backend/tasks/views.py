@@ -12,8 +12,8 @@ from rest_framework.permissions import IsAuthenticated
 def get_my_tasks(request):
     # VIEW YOUR TASKS CREATED
     if request.method == 'GET':
-        owner_projects = Tasks.objects.filter(project__owner = request.user).order_by('-status').order_by('project_id')
-        employee_assigned = Tasks.objects.filter(assigned_id = request.user.id).order_by('-status').order_by('project_id')
+        owner_projects = Tasks.objects.filter(project__owner = request.user).order_by('-status')
+        employee_assigned = Tasks.objects.filter(assigned_id = request.user.id).order_by('-status')
         if owner_projects :
             serializer = TaskSerializer(owner_projects, many=True)
             return Response(serializer.data, status = status.HTTP_200_OK)
