@@ -8,8 +8,8 @@ const LogForm = (props) => {
   const [comment, setComment] = useState("");
   const [taskId, setTaskId] = useState("");
   const [projectId, setProjectId] = useState("");
-  const [assignedId, setAssignedId] = useState(user.id);
   const [status, setStatus] = useState("");
+  const assignedId =  user.id
 
   function createLog(event) {
     event.preventDefault();

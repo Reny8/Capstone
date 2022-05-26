@@ -66,7 +66,7 @@ const DisplayTasks = (props) => {
         currentTask.assigned_id = finalResult[0];
         
       } else {
-        alert("Invalid Entry\n${firstName} $lastName} is not in the system");
+        alert(`Invalid Entry\n${firstName} ${lastName} is not in the system`);
       }
     } else if (answer === "description") {
       let newValue = prompt(`Enter the new ${answer} value`);
