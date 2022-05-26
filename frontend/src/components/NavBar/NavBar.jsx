@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
-
+import Logo from "../../output-onlinegiftools.gif"
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <h2>Project Tracker</h2>
+            <h2><img src={Logo} style={{height: "3rem"}}/>Pro Tracker</h2>
           </Link>
         </li>
         <li><button onClick={() => navigate("/")} className="button">HOME</button></li>
