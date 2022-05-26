@@ -21,14 +21,14 @@ const CalendarDisplay = (props) => {
     function handleEvents() {
         let projectTitlesAndDates = props.projects.map((project)=>{
             return {
-                title: `${project.title} Project`,
+                title: `Project: ${project.title} `,
                 start: new Date(project.due_date),
                 end: new Date(project.due_date)
             }
         })
         let taskTitlesAndDates = props.tasks.map((task)=>{
             return {
-                title: `Task:${task.description}`,
+                title: `Task: ${task.description}`,
                 start: new Date(task.due_date),
                 end: new Date(task.due_date)
             }

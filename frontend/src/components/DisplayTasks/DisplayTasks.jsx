@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 const DisplayTasks = (props) => {
   function handleDeleteClick(id, task) {
@@ -21,7 +21,7 @@ const DisplayTasks = (props) => {
     let answer = prompt(
       `You have selected:\nTask: ${currentTask.description}\nWhat would you like to edit?\nType date, project, assigned or description`
     ).toLowerCase();
-    
+
     if (answer === "date") {
       let newValue = prompt(`Enter the new ${answer} value`);
       currentTask.due_date = newValue;
@@ -36,46 +36,47 @@ const DisplayTasks = (props) => {
         let finalResult = newProject.map((project) => {
           return project.id;
         });
-        currentTask.project_id = finalResult;
+        currentTask.project_id = finalResult[0];
       } else {
         alert("No project in the system was found");
       }
     } else if (answer === "assigned") {
-      let firstName = prompt("Enter their first name")
-      let lastName = prompt("Enter their last name")
+      let firstName = prompt("Enter their first name");
+      let lastName = prompt("Enter their last name");
       let developersFound = props.developers.filter((developer) => {
         if (
-          developer.first_name.toLowerCase() === firstName && developer.last_name.toLowerCase() === lastName) {
+          developer.first_name.toLowerCase() === firstName &&
+          developer.last_name.toLowerCase() === lastName
+        ) {
           return true;
         }
       });
-      console.log(currentTask)
       if (developersFound.length > 0) {
         let finalResult = developersFound.map((developer) => {
           return developer.id;
         });
-        currentTask.assigned_id = finalResult;
+        currentTask.assigned_id = finalResult[0];
+        
       } else {
-        alert("No developer of that name was found in the system");
+        alert("Invalid Entry\n${firstName} $lastName} is not in the system");
       }
     } else if (answer === "description") {
       let newValue = prompt(`Enter the new ${answer} value`);
       currentTask.description = newValue;
     }
-  submitUpdate(task.id, currentTask)
+    submitUpdate(task.id, currentTask);
   }
 
   async function submitUpdate(id, update) {
     try {
-      await axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`,update,{
+      await axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, update, {
         headers: {
-          Authorization: "Bearer " + props.token
-        }
-      })
-      props.getAllTasks()
-    }
-    catch(error) {
-      console.log(error.message) 
+          Authorization: "Bearer " + props.token,
+        },
+      });
+      props.getAllTasks();
+    } catch (error) {
+      console.log(error.message);
     }
   }
   async function deleteTask(id) {
