@@ -15,7 +15,7 @@ const DisplayProjects = (props) => {
             {props.projects.map((project) => {
               return (
                 <tr key={project.id}>
-                  <td>{project.title}</td>
+                  <td>{project.title} Application</td>
                   <td>{project.due_date}</td>
                 </tr>
               );

@@ -7,14 +7,14 @@ const CompletionChart = (props) => {
     title: `${props.projectTitle} Completion`,
     backgroundColor: "transparent",
     titleTextStyle: {
-      color: "white"
+      color: "white",
     },
     legend: "none",
     is3D: true,
     slices: {
-      0: {color: 'darkgreen'},
-      1: {color: 'darkred'}
-    }
+      0: { color: "darkgreen" },
+      1: { color: "darkred" },
+    },
   };
 
   useEffect(() => {
@@ -30,12 +30,14 @@ const CompletionChart = (props) => {
     setNotDone(taskNotDone.length);
   }, []);
   function handleData() {
-    const data = [
-      ["Tasks", "How Many Completed"],
-      ["Task Completed", completed],
-      ["Task Not Done", notDone],
-    ];
-    return data;
+    if (completed !== [] || notDone !== []) {
+      const data = [
+        ["Tasks", "How Many Completed"],
+        ["Task Completed", completed],
+        ["Task Not Done", notDone],
+      ];
+      return data;
+    }
   }
   return (
     <div>

@@ -125,7 +125,7 @@ const DisplayTasks = (props) => {
               return (
                 <tr key={task.id}>
                   <td>{task.due_date}</td>
-                  <td>{task.project.title}</td>
+                  <td>{task.project.title} Application</td>
                   <td>
                     {task.assigned.first_name} {task.assigned.last_name}
                   </td>
@@ -176,7 +176,7 @@ const DisplayTasks = (props) => {
             return (
               <tr key={task.id}>
                 <td>{task.due_date}</td>
-                <td>{task.project.title}</td>
+                <td>{task.project.title} Application</td>
                 <td>
                   {task.assigned.first_name} {task.assigned.last_name}
                 </td>
