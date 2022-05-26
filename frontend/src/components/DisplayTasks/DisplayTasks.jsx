@@ -11,6 +11,7 @@ const DisplayTasks = (props) => {
     }
     }
     catch (error) {
+      console.log(error.message)
       console.log("Delete has been cancelled")
     }
   }
