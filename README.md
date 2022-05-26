@@ -1,18 +1,30 @@
-# ReactDjango_JWT_StarterCode
-
-Starter code for full stack React + Django applications using JWT for authentication/authorization and a fully working register/login system on the React side
-
-## NOTE
-
-"cars" app in Django backend for example purposes only. Study it closely and review provided resources to understand how to properly create protected endpoints that require a JWT token for authorization.
-
-## For implementing user roles
-
-- see comments in the following files in the order they are listed
-  - backend/authentication/models.py
-  - backend/authentication/serializers.py (note that there are several places needing modification in that file)
-- If modifying the User class in authentication/models.py, make sure to drop your existing database,
-  create it, and run migrations from scratch
-- for a great reference, see the following article: https://simpleisbetterthancomplex.com/tutorial/2018/01/18/how-to-implement-multiple-user-types-with-django.html
-  - note that this article is from 2018 and dealing with a full stack Django application scenario with HTML/CSS templates. The principles of setting up the backend portion for User roles is still valid!
-- once user roles are set up on your backend, you can now utilize them on the frontend. Recommend reviewing the React Router slideshow for ideas on how to use descendant routes and conditional rendering to control who can access what parts of your application based on a role!
+USER STORIES FEATURES:
+# As a Project Manager and Team Member, I want to be able to 
+register/login an account with the application. <FOR MULTI ROLE 
+REGISTRATIONS>
+  
+# As a developer, I want to have an aesthetically pleasing and 
+intuitive user interface/user experience (UI/UX) with all features of the 
+application stylized.
+  
+# As a Project Manager, I want to be able to create a project for my 
+team, with the ability to add, remove, and update tasks on that project as 
+needed
+  
+# As a Project Manager, I want to be able to see a dashboard of all
+the current projects I am managing with a visualization showing the 
+percentage of tasks per project complete so that I can easily see where all 
+projects are at a glance
+  
+# As a Project Manager, I want to be able to see a task list for each 
+project and filter by completed/not completed and Team Member assigned
+  
+# As a Project Manager, I want to see all tasks on a calendar and 
+filter the calendar based on the due date or assigned date
+  
+# As a Team Member, I want to see a main page listing all of my 
+projects and a chart showing how many tasks per day I have
+completed
+  
+# As a Team Member, I want to be able see only tasks I am assigned
+to, mark a task completed, and add notes to that task
