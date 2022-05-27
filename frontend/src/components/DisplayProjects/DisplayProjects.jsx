@@ -40,7 +40,7 @@ const DisplayProjects = (props) => {
       console.log(error.message);
     }
   }
-  
+
   async function updateProject(id, object) {
     await axios.put(`http://127.0.0.1:8000/api/projects/${id}/`, object, {
       headers: {
@@ -50,7 +50,7 @@ const DisplayProjects = (props) => {
     props.getAllProjects();
   }
 
-  if (props.projects.length > 0 && props.user.role === "Project Manager") {
+  if ((props.user && props.projects) && (props.projects.length > 0 && props.user.role === "Project Manager")) {
     return (
       <div className="project-display">
         <table className="table">
@@ -91,9 +91,9 @@ const DisplayProjects = (props) => {
         </table>
       </div>
     );
-  } else if (
+  } else if ((props.user && props.projects) &&(
     props.projects.length > 0 &&
-    props.user.role === "Software Developer"
+    props.user.role === "Software Developer")
   ) {
     return (
       <div>

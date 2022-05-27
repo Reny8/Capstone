@@ -41,7 +41,6 @@ const HomePage = (props) => {
         <div className="welcome">
           <h1 style={{color: "white"}}> Welcome {user.first_name}!</h1>
           <SearchBar
-          user = {user}
             getAllTasks={props.getAllTasks}
             setTasks={props.setTasks}
             tasks={props.tasks}
@@ -64,7 +63,7 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Current Projects</h2>
-            <DisplayProjects getAllProjects={props.getAllProjects} token = {token} user = {user}projects={props.projects} />
+            <DisplayProjects getAllProjects={props.getAllProjects} token = {token} user = {user} projects={props.projects} />
           </div>
           <div>
             <ProjectForm
@@ -115,7 +114,7 @@ const HomePage = (props) => {
         <div className="box">
           <div>
             <h2>Current Projects</h2>
-            <DisplayProjects projects={props.projects} />
+            <DisplayProjects user ={user} projects={props.projects} />
           </div>
           <div>
             <h2>Current Tasks</h2>

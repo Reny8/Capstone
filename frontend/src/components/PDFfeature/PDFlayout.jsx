@@ -2,6 +2,7 @@ import React from "react";
 import CompletionChart from "../Charts/CompletionChart";
 import DisplayProjects from "../DisplayProjects/DisplayProjects";
 import "./PDF.css";
+import PrintDisplay from "./PrintDisplay";
 class PDFlayout extends React.Component {
   render() {
     return (
@@ -22,7 +23,7 @@ class PDFlayout extends React.Component {
               );
             })}
             </div>
-            <DisplayProjects projects={this.props.projects} />
+            <PrintDisplay projects={this.props.projects}/>
         </div>
     );
   }
