@@ -48,3 +48,16 @@ def get_all_developers(request):
         users = User.objects.filter(role = "Software Developer")
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['PUT','DELETE'])
+@permission_classes([IsAuthenticated])
+def modify_project(request,pk):
+    project = get_object_or_404(Projects,pk = pk)
+    if request.method == "PUT":
+        serializer = ProjectSerializer(project, data = request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user = request.user)
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+    elif request.method == "DELETE":
+        project.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
