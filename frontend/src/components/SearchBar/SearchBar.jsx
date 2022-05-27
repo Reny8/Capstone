@@ -38,6 +38,7 @@ const SearchBar = (props) => {
       <button onClick={() => handleClick()} className="button">
         SEARCH
       </button>
+     
     </div>
   );
 };

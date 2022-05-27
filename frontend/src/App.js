@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className="page">
-      <Navbar />
+      <Navbar user={user}/>
       <Routes>
         <Route
           path="/"

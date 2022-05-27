@@ -10,7 +10,7 @@ import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
 import CompletionChart from "../../components/Charts/CompletionChart";
-import { Link } from "react-router-dom";
+
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [developers, setDevelopers] = useState([]);
@@ -41,15 +41,13 @@ const HomePage = (props) => {
         <div className="welcome">
           <h1> Welcome {user.first_name}!</h1>
           <SearchBar
+          user = {user}
             getAllTasks={props.getAllTasks}
             setTasks={props.setTasks}
             tasks={props.tasks}
           />
         </div>
         <div className="box">
-          <Link to="/print">
-            <button className="button">PRINT PROJECT COMPLETION</button>
-          </Link>
           <h2>Project Completion</h2>
           <div className="chart-grid-container">
             {props.projects.map((project) => {
