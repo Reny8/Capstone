@@ -1,4 +1,4 @@
-USER STORIES FEATURES:
+FEATURES:
 
 As a Project Manager and Team Member, I want to be able to 
 register/login an account with the application. <FOR MULTI ROLE 
@@ -29,3 +29,5 @@ completed
   
 As a Team Member, I want to be able see only tasks I am assigned
 to, mark a task completed, and add notes to that task
+
+As a Project Manager, I want to be able to print my current projects completion charts and current projects
