@@ -1,4 +1,7 @@
 
-.export .button {
-    width: 50%;
+.around-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
 }

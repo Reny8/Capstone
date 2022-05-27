@@ -2,7 +2,7 @@ div.rbc-day-bg.rbc-today {
     background-image: linear-gradient(#2E182A,#375680)
 }
 span.rbc-btn-group button {
-    color: white;
+    color: lightskyblue;
 }
 span.rbc-btn-group button.rbc-active {
     color: black;
@@ -25,4 +25,7 @@ div.rbc-header.rbc-today {
 }
 div.rbc-day-slot.rbc-time-column.rbc-now.rbc-today {
     background-image: linear-gradient(#2c4466, #375680) 
+}
+.rbc-event-content {
+    color: white
 }
