@@ -1,23 +1,55 @@
 import React from "react";
 import "./DisplayProjects.css";
-import axios from 'axios'
+import axios from "axios";
 const DisplayProjects = (props) => {
   async function handleDelete(id) {
-    try { 
-      let answer = prompt("Are you sure you would like to delete the selected project").toLowerCase()
-      if (answer === 'yes') {
-        await axios.delete(`http://127.0.0.1:8000/api/projects/${id}/`,{
+    try {
+      let answer = prompt(
+        "Are you sure you would like to delete the selected project"
+      ).toLowerCase();
+      if (answer === "yes") {
+        await axios.delete(`http://127.0.0.1:8000/api/projects/${id}/`, {
           headers: {
-            Authorization: "Bearer " + props.token
-          }
-        })
-      props.getAllProjects()
+            Authorization: "Bearer " + props.token,
+          },
+        });
+        props.getAllProjects();
       }
-    }
-    catch (error) {
-      console.log(error.message)
+    } catch (error) {
+      console.log(error.message);
     }
   }
+  function handleUpdate(object) {
+    let update = {
+      title: object.title,
+      due_date: object.due_date,
+      owner_id: props.user.id,
+    };
+    try {
+      let updateRequest = prompt(
+        `You have selected ${object.title}.\nWhat would you like to change?\nEnter title or date`
+      ).toLowerCase();
+      let change = prompt("Enter the new value");
+      if (updateRequest === "title") {
+        update.title = change;
+      } else if (updateRequest === "date") {
+        update.due_date = change;
+      }
+      updateProject(object.id, update);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  
+  async function updateProject(id, object) {
+    await axios.put(`http://127.0.0.1:8000/api/projects/${id}/`, object, {
+      headers: {
+        Authorization: "Bearer " + props.token,
+      },
+    });
+    props.getAllProjects();
+  }
+
   if (props.projects.length > 0 && props.user.role === "Project Manager") {
     return (
       <div className="project-display">
@@ -37,10 +69,20 @@ const DisplayProjects = (props) => {
                   <td>{project.title} Application</td>
                   <td>{project.due_date}</td>
                   <td>
-                    <button className="button">UPDATE</button>
+                    <button
+                      onClick={() => handleUpdate(project)}
+                      className="button"
+                    >
+                      UPDATE
+                    </button>
                   </td>
                   <td>
-                    <button onClick={() => handleDelete(project.id)}className="button">DELETE</button>
+                    <button
+                      onClick={() => handleDelete(project.id)}
+                      className="button"
+                    >
+                      DELETE
+                    </button>
                   </td>
                 </tr>
               );

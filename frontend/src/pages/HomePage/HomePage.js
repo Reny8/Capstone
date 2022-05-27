@@ -52,7 +52,7 @@ const HomePage = (props) => {
           <div className="chart-grid-container">
             {props.projects.map((project) => {
               return (
-                <div>
+                <div key={project.id * 10}>
                   <CompletionChart
                     projectId={project.id}
                     projectTitle={project.title}
