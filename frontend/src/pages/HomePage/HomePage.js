@@ -10,7 +10,6 @@ import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
 import CompletionChart from "../../components/Charts/CompletionChart";
-import ExportPDF from "../../PDFfeature/ExportPDF";
 import { Link } from "react-router-dom";
 const HomePage = (props) => {
   const [user, token] = useAuth();
@@ -49,7 +48,7 @@ const HomePage = (props) => {
         </div>
         <div className="box">
           <Link to="/print">
-            <button className="button">PRINT</button>
+            <button className="button">PRINT PROJECT COMPLETION</button>
           </Link>
           <h2>Project Completion</h2>
           <div className="chart-grid-container">

@@ -1,0 +1,14 @@
+.PDF .border-box {
+    margin-left: 0rem;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: none;
+}
+
+.PDF h2 {
+    color: #6187C2
+}
+.chart-grid-container div {
+    color: black
+}

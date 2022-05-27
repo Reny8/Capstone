@@ -7,7 +7,7 @@ const CompletionChart = (props) => {
     title: `${props.projectTitle} Completion`,
     backgroundColor: "transparent",
     titleTextStyle: {
-      color: "white",
+      color: "#6187C2",
     },
     legend: "none",
     is3D: true,
