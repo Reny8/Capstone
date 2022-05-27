@@ -11,7 +11,7 @@
 }
 
 html {
-  background-image: linear-gradient(#2E182A,#375680)
+  background-image: linear-gradient(#375680,#2E182A)
   
 }
 
@@ -39,7 +39,7 @@ html {
 }
 
 .page {
-  background-image: linear-gradient(#400723, #541D62,#41223B,#2E182A);
+  background-image: linear-gradient(#400723, #541D62,#41223B,#375680);
   height: 100%;
   padding-right: 4rem;
 }

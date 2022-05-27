@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import DisplayProjects from "../../components/DisplayProjects/DisplayProjects";
 import DisplayTasks from "../../components/DisplayTasks/DisplayTasks";
@@ -10,6 +10,8 @@ import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
 import CompletionChart from "../../components/Charts/CompletionChart";
+import ExportPDF from "../../PDFfeature/ExportPDF";
+import { Link } from "react-router-dom";
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [developers, setDevelopers] = useState([]);
@@ -44,22 +46,25 @@ const HomePage = (props) => {
             setTasks={props.setTasks}
             tasks={props.tasks}
           />
-        </div> 
-        <div className="box">
-        <h2>Project Completion</h2>
-        <div className="chart-grid-container">
-          {props.projects.map((project) => {
-            return (
-              <div>
-                <CompletionChart
-                  projectId={project.id}
-                  projectTitle={project.title}
-                  tasks={props.tasks}
-                />
-              </div>
-            );
-          })}
         </div>
+        <div className="box">
+          <Link to="/print">
+            <button className="button">PRINT</button>
+          </Link>
+          <h2>Project Completion</h2>
+          <div className="chart-grid-container">
+            {props.projects.map((project) => {
+              return (
+                <div>
+                  <CompletionChart
+                    projectId={project.id}
+                    projectTitle={project.title}
+                    tasks={props.tasks}
+                  />
+                </div>
+              );
+            })}
+          </div>
           <div>
             <h2>Current Projects</h2>
             <DisplayProjects projects={props.projects} />
@@ -72,11 +77,22 @@ const HomePage = (props) => {
             />
           </div>
           <div>
-            <AssignedForm developers = {developers} projects={props.projects} token={token} />
+            <AssignedForm
+              developers={developers}
+              projects={props.projects}
+              token={token}
+            />
           </div>
           <div>
             <h2>Current Tasks</h2>
-            <DisplayTasks developers ={developers} projects ={props.projects} getAllTasks={props.getAllTasks} token = {token} user = {user} tasks={props.tasks} />
+            <DisplayTasks
+              developers={developers}
+              projects={props.projects}
+              getAllTasks={props.getAllTasks}
+              token={token}
+              user={user}
+              tasks={props.tasks}
+            />
           </div>
           <div>
             <TasksForm
@@ -86,7 +102,6 @@ const HomePage = (props) => {
             />
           </div>
         </div>
-       
       </div>
     );
   } else if (user.role === "Software Developer") {

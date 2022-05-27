@@ -17,6 +17,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import LogsPage from "./pages/LogsPage/LogsPage";
 import useAuth from "./hooks/useAuth";
 import AgendaPage from "./pages/AgendaPage/AgendaPage";
+import ExportPDF from "./PDFfeature/ExportPDF";
 
 function App() {
   const [user, token] = useAuth();
@@ -95,6 +96,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/agenda" element ={<AgendaPage tasks={tasks} projects={projects}/>}/>
+        <Route path="/print" element ={<ExportPDF />}/>
       </Routes>
       {/* <div>
         <Footer />
