@@ -23,7 +23,7 @@ class PDFlayout extends React.Component {
               );
             })}
           </div>
-            <div className="border-box">
+            <div>
               <DisplayProjects projects={this.props.projects} />
             </div>
         </div>

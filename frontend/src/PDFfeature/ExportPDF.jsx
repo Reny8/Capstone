@@ -6,14 +6,15 @@ class ExportPDF extends React.Component{
      
     render() {
       return (
+        <div className="export">
         <div className="box">
-          <PDFlayout projects={this.props.projects} tasks={this.props.tasks}ref={(response) => (this.componentRef = response)} />
-          
           <ReactToPrint
             content={() => this.componentRef}
-            trigger={() => <button className="btn btn-primary">Print to PDF!</button>}
+            trigger={() => <button className="button">Print PDF</button>}
           />
-        </div>
+          <PDFlayout projects={this.props.projects} tasks={this.props.tasks}ref={(response) => (this.componentRef = response)} />
+          
+        </div></div>
       );
     }
 }
