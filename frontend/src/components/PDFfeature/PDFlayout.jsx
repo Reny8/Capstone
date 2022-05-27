@@ -1,6 +1,5 @@
 import React from "react";
 import CompletionChart from "../Charts/CompletionChart";
-import DisplayProjects from "../DisplayProjects/DisplayProjects";
 import "./PDF.css";
 import PrintDisplay from "./PrintDisplay";
 class PDFlayout extends React.Component {
