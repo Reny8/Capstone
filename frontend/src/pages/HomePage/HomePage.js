@@ -64,7 +64,7 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Current Projects</h2>
-            <DisplayProjects projects={props.projects} />
+            <DisplayProjects getAllProjects={props.getAllProjects} token = {token} user = {user}projects={props.projects} />
           </div>
           <div>
             <ProjectForm
