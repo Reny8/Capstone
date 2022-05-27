@@ -13,8 +13,8 @@ const Navbar = (props) => {
         <ul>
           <li className="brand">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <h2>
-                <img src={Logo} alt="Comany Logo" style={{ height: "3rem" }} />
+              <h2 style={{color: "white"}}>
+                <img src={Logo} alt="Comany Logo" style={{ height: "3rem"}} />
                 Project Tracker
               </h2>
             </Link>
@@ -58,7 +58,7 @@ const Navbar = (props) => {
         <ul>
           <li className="brand">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <h2>
+              <h2 style={{color: "white"}}>
                 <img src={Logo} alt="Comany Logo" style={{ height: "3rem" }} />
                 Project Tracker
               </h2>
