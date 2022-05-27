@@ -1,12 +1,11 @@
 import React from "react";
-import CompletionChart from "../components/Charts/CompletionChart";
-import DisplayProjects from "../components/DisplayProjects/DisplayProjects";
+import CompletionChart from "../Charts/CompletionChart";
+import DisplayProjects from "../DisplayProjects/DisplayProjects";
 import "./PDF.css";
 class PDFlayout extends React.Component {
   render() {
     return (
       <div className="PDF">
-        <div>
           <h2 style={{ color: "#6187C2", fontFamily: "inherit" }}>
             PROJECT COMPLETION STATUS
           </h2>
@@ -22,12 +21,9 @@ class PDFlayout extends React.Component {
                 </div>
               );
             })}
-          </div>
-            <div>
-              <DisplayProjects projects={this.props.projects} />
             </div>
+            <DisplayProjects projects={this.props.projects} />
         </div>
-      </div>
     );
   }
 }

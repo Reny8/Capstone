@@ -17,7 +17,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import LogsPage from "./pages/LogsPage/LogsPage";
 import useAuth from "./hooks/useAuth";
 import AgendaPage from "./pages/AgendaPage/AgendaPage";
-import ExportPDF from "./PDFfeature/ExportPDF";
+import ExportPDF from "./components/PDFfeature/ExportPDF";
 
 function App() {
   const [user, token] = useAuth();
