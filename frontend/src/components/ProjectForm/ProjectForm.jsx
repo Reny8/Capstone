@@ -5,13 +5,16 @@ const ProjectForm = (props) => {
   const [title, setTitle] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  function createProject() {
+  function createProject(event) {
+    event.preventDefault();
     let newProject = {
       owner_id: props.user.id,
       title: title,
       due_date: dueDate,
     };
     addProject(newProject);
+    setTitle("")
+    setDueDate("")
   }
 
 
