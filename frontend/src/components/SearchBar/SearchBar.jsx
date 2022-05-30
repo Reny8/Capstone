@@ -10,17 +10,16 @@ const SearchBar = (props) => {
       } else if (task.description.toLowerCase() === search.toLowerCase()) {
         return true;
       } else if (
-        task.assigned.first_name.toLowerCase() === search.toLowerCase()
-      ) {
-        return true;
-      } else if (
-        task.assigned.last_name.toLowerCase() === search.toLowerCase()
+        task.assigned.first_name.toLowerCase() +
+          " " +
+          task.assigned.last_name.toLowerCase() ===
+        search.toLowerCase()
       ) {
         return true;
       } else if (task.project.title.toLowerCase() === search.toLowerCase()) {
         return true;
       }
-    return response
+      return response;
     });
     props.setTasks(response);
     setSearch("");
@@ -38,7 +37,6 @@ const SearchBar = (props) => {
       <button onClick={() => handleClick()} className="button">
         SEARCH
       </button>
-     
     </div>
   );
 };
