@@ -1,3 +1,7 @@
 .log-container .border-box {
-    margin: 10rem;
+    margin: 0
+}
+.log-container {
+    padding-top: 8rem;
+    margin-bottom: 3rem;
 }
