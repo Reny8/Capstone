@@ -1,6 +1,7 @@
 import React from "react";
 const PrintDisplay = (props) => {
-  return (
+  if (props.projects&& props.projects.length > 0) {
+    return ( 
     <div>
       <table className="table">
         <thead>
@@ -21,7 +22,17 @@ const PrintDisplay = (props) => {
         </tbody>
       </table>
     </div>
-  );
+  );  
+  }
+  else
+    return (
+      <div className="projects-container">
+        <div className="border-box">
+          <h1>NO CURRENT PROJECTS</h1>
+        </div>
+      </div>
+    );
+
 };
 
 export default PrintDisplay;

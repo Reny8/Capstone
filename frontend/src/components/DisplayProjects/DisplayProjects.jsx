@@ -50,7 +50,7 @@ const DisplayProjects = (props) => {
     props.getAllProjects();
   }
 
-  if ((props.user && props.projects) && (props.projects.length > 0 && props.user.role === "Project Manager")) {
+  if (props.projects && props.projects.length > 0) {
     return (
       <div className="project-display">
         <table className="table">
@@ -91,32 +91,7 @@ const DisplayProjects = (props) => {
         </table>
       </div>
     );
-  } else if ((props.user && props.projects) &&(
-    props.projects.length > 0 &&
-    props.user.role === "Software Developer")
-  ) {
-    return (
-      <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Project Title</th>
-              <th>Due Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.projects.map((project) => {
-              return (
-                <tr key={project.id}>
-                  <td>{project.title} Application</td>
-                  <td>{project.due_date}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    );
+  
   } else
     return (
       <div className="projects-container">

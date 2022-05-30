@@ -36,7 +36,7 @@ const DisplayLogs = (props) => {
     );
   } else {
     return (
-      <div className="log-container">
+      <div className="projects-container">
       <div className="border-box">
         <h2>NO CURRENT LOGS</h2>
       </div></div>

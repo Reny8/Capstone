@@ -10,7 +10,7 @@ import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
 import CompletionChart from "../../components/Charts/CompletionChart";
-
+import PrintDisplay from "../../components/PDFfeature/PrintDisplay"
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [developers, setDevelopers] = useState([]);
@@ -114,7 +114,7 @@ const HomePage = (props) => {
         <div className="box">
           <div>
             <h2>Current Projects</h2>
-            <DisplayProjects user ={user} projects={props.projects} />
+            <PrintDisplay user ={user} projects={props.projects} />
           </div>
           <div>
             <h2>Current Tasks</h2>
