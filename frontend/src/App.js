@@ -10,7 +10,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -98,9 +98,9 @@ function App() {
         <Route path="/agenda" element ={<AgendaPage tasks={tasks} projects={projects}/>}/>
         <Route path="/print" element ={<ExportPDF tasks={tasks} projects={projects} />}/>
       </Routes>
-      {/* <div>
+      <div>
         <Footer />
-      </div> */}
+      </div>
     </div>
   );
 }
