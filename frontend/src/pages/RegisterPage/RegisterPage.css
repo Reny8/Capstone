@@ -10,7 +10,8 @@
 
 }
 .register-container .grid-box label {
-    margin-right:2rem
+    margin-right:2rem;
+    display: flex;
 }
 .register-container .grid-box button {
     margin-right: 2rem;
@@ -19,4 +20,7 @@
 .register-container .border-box h2{
     margin-right: auto;
     margin-left: auto
+}
+.register-container .grid-box select {
+   padding-left: 3rem;
 }

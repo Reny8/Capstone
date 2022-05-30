@@ -87,13 +87,11 @@ const RegisterPage = () => {
           <div className="grid-box">
             <label>
               ROLE:
-              <input
-                type="text"
-                name="role"
-                placeholder=" Enter your Role..."
-                value={formData.password}
-                onChange={handleInputChange}
-              />
+              <select name="role" onChange={handleInputChange}>
+                <option>Choose Here</option>
+                <option value="Project Manager">Project Manager</option>
+                <option value="Software Developer">Software Developer</option>
+              </select>
             </label>
           </div>
           <div className="grid-box">
