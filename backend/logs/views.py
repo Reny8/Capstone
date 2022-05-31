@@ -10,8 +10,8 @@ from .serializers import LogSerializer
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def log_details(request):
-    assigned_logs = Logs.objects.filter(assigned_id = request.user.id)
-    see_all_logs = Logs.objects.filter(project__owner = request.user.id)
+    assigned_logs = Logs.objects.filter(assigned_id = request.user.id).order_by('log_date')
+    see_all_logs = Logs.objects.filter(project__owner = request.user.id).order_by('log_date')
     if request.method == 'GET':
         if assigned_logs:
             serializer = LogSerializer(assigned_logs, many=True)
