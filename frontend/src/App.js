@@ -95,7 +95,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/agenda" element ={<AgendaPage tasks={tasks} projects={projects}/>}/>
+        <Route path="/agenda" element ={<PrivateRoute><AgendaPage tasks={tasks} projects={projects}/></PrivateRoute>}/>
         <Route path="/print" element ={<ExportPDF tasks={tasks} projects={projects} />}/>
       </Routes>
       <div>

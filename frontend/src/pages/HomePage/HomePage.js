@@ -39,7 +39,7 @@ const HomePage = (props) => {
     return (
       <div>
         <div className="welcome">
-          <h1 style={{color: "white"}}> Welcome {user.first_name}!</h1>
+          <h1 > Welcome {user.first_name}!</h1>
           <SearchBar
             getAllTasks={props.getAllTasks}
             setTasks={props.setTasks}
