@@ -1,0 +1,6 @@
+.tablelayout{
+    width: 100%;
+    height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 2rem;
+}
