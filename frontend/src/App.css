@@ -9,9 +9,7 @@
   
 }
 
-html {
-  background-image: linear-gradient(#2E182A,#375680)
-}
+
 
 
 .button {
@@ -37,9 +35,11 @@ html {
 }
 
 .page {
-  background-image: linear-gradient(#400723, #541D62,#41223B,#2E182A);
+  background-image: linear-gradient(#400723, #541D62,#41223B,#2c4568);
+  width: 100%;
   height: 100%;
-  padding-right: 4rem;
+  padding-right: 6rem;
+  padding-bottom: 12.2rem;
   color: white
 }
 h1 {
