@@ -82,16 +82,17 @@ const LogForm = (props) => {
               RELATED TASK:
               <select onChange={(e) => setTaskId(parseInt(e.target.value))}>
                 <option value="default">Choose Here</option>
-                {props.tasks.filter(
-                  (task => task.project.id === projectId)).map(
-                    (task,index) => {
+                {props.tasks
+                  .filter((task) => task.project.id === projectId)
+                  .map((task, index) => {
+                    if (task.status === "Incomplete") {
                       return (
                         <option key={index * 3} value={task.id}>
                           {task.description}
                         </option>
                       );
                     }
-                  )}
+                  })}
               </select>
             </label>
           </div>
