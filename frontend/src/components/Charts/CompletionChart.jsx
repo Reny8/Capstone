@@ -28,7 +28,7 @@ const CompletionChart = (props) => {
         task.status === "Incomplete" && task.project.id === props.projectId
     );
     setNotDone(taskNotDone.length);
-  }, []);
+  });
   function handleData() {
     if (completed !== [] || notDone !== []) {
       const data = [

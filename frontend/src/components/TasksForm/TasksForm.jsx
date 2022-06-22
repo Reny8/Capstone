@@ -81,7 +81,7 @@ const TasksForm = (props) => {
                         {developer.assigned_users &&
                           developer.assigned_users.map((element, index) => {
                             return (
-                              <option key={element[index]} value={element.id}>
+                              <option key={element[index]*12} value={element.id}>
                                 {element.first_name} {element.last_name}
                               </option>
                             );

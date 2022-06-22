@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import React, { useState  } from "react";
+import React, { useEffect, useState  } from "react";
 import axios from "axios";
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -25,6 +25,12 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [logs, setLogs] = useState([]);
 
+  useEffect(()=>{
+    getAllLogs()
+    getAllProjects()
+    getAllTasks()
+  },[token])
+  
   async function getAllLogs() {
     try {
         let response = await axios.get("http://127.0.0.1:8000/api/logs/", {
