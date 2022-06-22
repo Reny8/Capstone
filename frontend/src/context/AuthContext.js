@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       };
       let response = await axios.post(`${BASE_URL}/register/`, finalData);
       if (response.status === 201) {
-        alert("Successful registration! Log in to access token");
+        alert("Successful registration!");
         setIsServerError(false);
         navigate("/login");
       } else {
