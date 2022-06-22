@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       };
       let response = await axios.post(`${BASE_URL}/register/`, finalData);
       if (response.status === 201) {
-        console.log("Successful registration! Log in to access token");
+        alert("Successful registration! Log in to access token");
         setIsServerError(false);
         navigate("/login");
       } else {
@@ -50,6 +50,7 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error.response.data);
+      alert("INVALID ENTRY\nUser is already in the system")
     }
   };
 
