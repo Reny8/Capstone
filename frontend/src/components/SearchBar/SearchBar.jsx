@@ -5,7 +5,7 @@ const SearchBar = (props) => {
 
   function handleClick() {
     let response = props.tasks.filter((task) => {
-      if (task.status.toLowerCase().includes(search.toLowerCase())) {
+      if (task.status.toLowerCase() === search.toLowerCase()) {
         return true;
       } else if (
         task.description.toLowerCase().includes(search.toLowerCase())
