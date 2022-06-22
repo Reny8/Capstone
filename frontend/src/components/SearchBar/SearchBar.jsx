@@ -5,9 +5,11 @@ const SearchBar = (props) => {
 
   function handleClick() {
     let response = props.tasks.filter((task) => {
-      if (task.status.toLowerCase() === search.toLowerCase()) {
+      if (task.status.toLowerCase().includes(search.toLowerCase())) {
         return true;
-      } else if (task.description.toLowerCase() === search.toLowerCase()) {
+      } else if (
+        task.description.toLowerCase().includes(search.toLowerCase())
+      ) {
         return true;
       } else if (
         task.assigned.first_name.toLowerCase() +
@@ -16,7 +18,9 @@ const SearchBar = (props) => {
         search.toLowerCase()
       ) {
         return true;
-      } else if (task.project.title.toLowerCase() === search.toLowerCase()) {
+      } else if (
+        task.project.title.toLowerCase().includes(search.toLowerCase())
+      ) {
         return true;
       }
       return response;
