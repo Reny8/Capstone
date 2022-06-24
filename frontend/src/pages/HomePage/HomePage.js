@@ -108,11 +108,11 @@ const HomePage = (props) => {
         </div>
         <div className="box">
           <div>
-            <h2>Current Projects</h2>
+            <h2>Projects</h2>
             <PrintDisplay user ={user} projects={props.projects} />
           </div>
           <div>
-            <h2>Current Tasks</h2>
+            <h2>Tasks</h2>
             <SearchBar
             getAllTasks={props.getAllTasks}
             setTasks={props.setTasks}
