@@ -160,11 +160,6 @@ const DisplayTasks = (props) => {
   ) {
     return (
       <div className="tablelayout">
-         <SearchBar
-            getAllTasks={props.getAllTasks}
-            setTasks={props.setTasks}
-            tasks={props.tasks}
-          />
         <table className="table">
           <thead>
             <tr>

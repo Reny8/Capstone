@@ -1,18 +1,18 @@
 .search-bar input {
     margin-right: 1rem;
-    height: 70%;
     border-radius: 5px;
     margin-left: 1rem;
     color: white;
     background-color: #332313;
 }
 .search-bar {
-    display:flex;
-    align-items:center
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .search-bar button {
     height: 70%;
-    font-size: large;
+    font-size: small;
     display: flex;
     align-items: center;
     justify-content: center;
