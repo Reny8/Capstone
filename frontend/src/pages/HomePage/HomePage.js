@@ -81,6 +81,11 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Tasks</h2>
+            <SearchBar
+            getAllTasks={props.getAllTasks}
+            setTasks={props.setTasks}
+            tasks={props.tasks}
+          />
             <DisplayTasks
               developers={developers}
               projects={props.projects}
@@ -105,11 +110,6 @@ const HomePage = (props) => {
       <div>
         <div className="welcome">
           <h1> Welcome {user.first_name}!</h1>
-          <SearchBar
-            getAllTasks={props.getAllTasks}
-            setTasks={props.setTasks}
-            tasks={props.tasks}
-          />
         </div>
         <div className="box">
           <div>
