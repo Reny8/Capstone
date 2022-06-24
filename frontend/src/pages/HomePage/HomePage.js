@@ -62,7 +62,7 @@ const HomePage = (props) => {
             })}
           </div>
           <div>
-            <h2>Current Projects</h2>
+            <h2>Projects</h2>
             <DisplayProjects getAllProjects={props.getAllProjects} token = {token} user = {user} projects={props.projects} />
           </div>
           <div>
@@ -80,7 +80,7 @@ const HomePage = (props) => {
             />
           </div>
           <div>
-            <h2>Current Tasks</h2>
+            <h2>Tasks</h2>
             <DisplayTasks
               developers={developers}
               projects={props.projects}
