@@ -56,19 +56,19 @@ const DisplayProjects = (props) => {
         <table className="table">
           <thead>
             <tr>
-              <th>Project Title</th>
               <th>Due Date</th>
-              <th>Update Project</th>
-              <th>Delete Project</th>
+              <th>Project Title</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {props.projects.map((project) => {
               return (
                 <tr key={project.id}>
-                  <td>{project.title} Application</td>
                   <td>{project.due_date}</td>
-                  <td>
+                  <td>{project.title}</td>
+                  <td style={{width:0}}>
                     <button
                       onClick={() => handleUpdate(project)}
                       className="button"
@@ -76,7 +76,7 @@ const DisplayProjects = (props) => {
                       UPDATE
                     </button>
                   </td>
-                  <td>
+                  <td style={{width:0}}>
                     <button
                       onClick={() => handleDelete(project.id)}
                       className="button"
