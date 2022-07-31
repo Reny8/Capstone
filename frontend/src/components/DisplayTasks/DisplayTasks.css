@@ -3,4 +3,20 @@
     height: 400px;
     overflow-y: scroll;
     margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+th {
+    position: sticky;
+    top:0;
+}
+thead tr{
+    background-color:#6187C2;
+    position: sticky;
+    top:0;
+    box-shadow: 2px 2px 8px white;
+
+}
+thead tr th {
+  color: #541D62
 }

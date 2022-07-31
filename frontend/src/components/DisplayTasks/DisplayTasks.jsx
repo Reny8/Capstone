@@ -161,7 +161,7 @@ const DisplayTasks = (props) => {
     return (
       <div className="tablelayout">
         <table className="table">
-          <thead>
+          <thead >
             <tr>
               <th>Due Date</th>
               <th>Related Project</th>
