@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import SearchBar from "../SearchBar/SearchBar";
 import "./DisplayTasks.css"
 const DisplayTasks = (props) => {
   function handleDeleteClick(id, task) {
