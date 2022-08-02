@@ -25,3 +25,10 @@ li {
   font-size: 1rem;
 }
 
+.nav-bar .button   {
+  background-color: transparent;
+  width: 70px;
+}
+.nav-bar .button:hover {
+  background-color: white
+}

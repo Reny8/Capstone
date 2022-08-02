@@ -10,7 +10,7 @@ const Navbar = (props) => {
   if (props.user && props.user.role === "Project Manager") {
     return (
       <div>
-        <ul>
+        <ul className="nav-bar">
           <li className="brand">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               <h2 style={{ color: "white" }}>
@@ -21,7 +21,7 @@ const Navbar = (props) => {
           </li>
           <li>
             <button onClick={() => navigate("/")} className="button">
-              <img src="https://img.icons8.com/cute-clipart/64/000000/home.png" />
+              <img src="https://img.icons8.com/cute-clipart/48/000000/home.png" />
             </button>
           </li>
           <li>
@@ -56,7 +56,7 @@ const Navbar = (props) => {
   } else
     return (
       <div>
-        <ul>
+        <ul className="nav-bar">
           <li className="brand">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               <h2 style={{ color: "white" }}>
@@ -67,7 +67,7 @@ const Navbar = (props) => {
           </li>
           <li>
             <button onClick={() => navigate("/")} className="button">
-              <img src="https://img.icons8.com/cute-clipart/64/000000/home.png" />
+              <img src="https://img.icons8.com/cute-clipart/48/000000/home.png" />
             </button>
           </li>
           <li>
