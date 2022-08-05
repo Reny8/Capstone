@@ -60,7 +60,7 @@ const HomePage = (props) => {
             <h2>Projects</h2>
             <DisplayProjects getAllProjects={props.getAllProjects} token = {token} user = {user} projects={props.projects} />
           </div>
-          <div>
+          <div style={{paddingBottom: '1rem'}}>
             <ProjectForm
               getAllProjects={props.getAllProjects}
               token={token}
