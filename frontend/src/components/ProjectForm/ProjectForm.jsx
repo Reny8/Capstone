@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+import "./ProjectForm.css"
 const ProjectForm = (props) => {
   const [title, setTitle] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -42,7 +42,7 @@ const ProjectForm = (props) => {
   return (
     <div className="accordion" id="projectAccordion">
       <div className="accordion-item">
-        <form className="assigned-form-container" onSubmit={createProject}>
+        <form onSubmit={createProject}>
           <div>
             <h2 className="accordion-header" id="headingOne">
               <button
@@ -54,7 +54,6 @@ const ProjectForm = (props) => {
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >Create Project</button>
-              
             </h2>
             <div
               id="collapseOne"
