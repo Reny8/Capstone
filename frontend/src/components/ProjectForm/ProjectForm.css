@@ -8,7 +8,8 @@
   background-color: #221203;
   display:flex;
   align-items: center;
-  justify-content:center
+  justify-content:center;
+  flex-wrap: wrap;
 }
 
 .accordion div.grid-box input {
@@ -17,4 +18,13 @@
     margin-left: 1rem;
     color: white;
     background-color: #332313;
+}
+
+
+.accordion select {
+  margin-right: 1rem;
+  border-radius: 5px;
+  margin-left: 1rem;
+  color: white;
+  background-color: #332313;
 }

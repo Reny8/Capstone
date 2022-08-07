@@ -1,8 +1,8 @@
 .welcome {
   display: flex;
-  margin-left: 14.5rem;
+  margin-left: 10.5rem;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 .welcome input {
   border-radius: 10px;

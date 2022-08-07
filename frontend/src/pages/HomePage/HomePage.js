@@ -10,7 +10,7 @@ import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TaskChart from "../../components/Charts/TaskChart";
 import AssignedForm from "../../components/AssignedForm/AssignedForm";
 import CompletionChart from "../../components/Charts/CompletionChart";
-import PrintDisplay from "../../components/PDFfeature/PrintDisplay"
+import PrintDisplay from "../../components/PDFfeature/PrintDisplay";
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [developers, setDevelopers] = useState([]);
@@ -39,9 +39,30 @@ const HomePage = (props) => {
     return (
       <div>
         <div className="welcome">
-          <h1 > Welcome {user.first_name}!</h1>
+          <h1> Welcome {user.first_name}!</h1>
         </div>
         <div className="box">
+          <div style={{ paddingBottom: "1rem" }}>
+            <ProjectForm
+              getAllProjects={props.getAllProjects}
+              token={token}
+              user={user}
+            />
+          </div>
+          <div style={{ paddingBottom: "1rem" }}>
+            <AssignedForm
+              developers={developers}
+              projects={props.projects}
+              token={token}
+            />
+          </div>
+          <div style={{ paddingBottom: "1rem" }}>
+            <TasksForm
+              getAllTasks={props.getAllTasks}
+              token={props.token}
+              projects={props.projects}
+            />
+          </div>
           <h2>Project Completion</h2>
           <div className="chart-grid-container">
             {props.projects.map((project) => {
@@ -58,29 +79,21 @@ const HomePage = (props) => {
           </div>
           <div>
             <h2>Projects</h2>
-            <DisplayProjects getAllProjects={props.getAllProjects} token = {token} user = {user} projects={props.projects} />
-          </div>
-          <div style={{paddingBottom: '1rem'}}>
-            <ProjectForm
+            <DisplayProjects
               getAllProjects={props.getAllProjects}
               token={token}
               user={user}
-            />
-          </div>
-          <div>
-            <AssignedForm
-              developers={developers}
               projects={props.projects}
-              token={token}
             />
           </div>
+
           <div>
             <h2>Tasks</h2>
             <SearchBar
-            getAllTasks={props.getAllTasks}
-            setTasks={props.setTasks}
-            tasks={props.tasks}
-          />
+              getAllTasks={props.getAllTasks}
+              setTasks={props.setTasks}
+              tasks={props.tasks}
+            />
             <DisplayTasks
               developers={developers}
               projects={props.projects}
@@ -88,13 +101,6 @@ const HomePage = (props) => {
               token={token}
               user={user}
               tasks={props.tasks}
-            />
-          </div>
-          <div>
-            <TasksForm
-              getAllTasks={props.getAllTasks}
-              token={props.token}
-              projects={props.projects}
             />
           </div>
         </div>
@@ -109,15 +115,15 @@ const HomePage = (props) => {
         <div className="box">
           <div>
             <h2>Projects</h2>
-            <PrintDisplay user ={user} projects={props.projects} />
+            <PrintDisplay user={user} projects={props.projects} />
           </div>
           <div>
             <h2>Tasks</h2>
             <SearchBar
-            getAllTasks={props.getAllTasks}
-            setTasks={props.setTasks}
-            tasks={props.tasks}
-          />
+              getAllTasks={props.getAllTasks}
+              setTasks={props.setTasks}
+              tasks={props.tasks}
+            />
             <DisplayTasks user={user} tasks={props.tasks} />
           </div>
         </div>{" "}

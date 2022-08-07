@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./AssignedForm.css";
 import "../ProjectForm/ProjectForm.css";
 const AssignedForm = (props) => {
   const [assignedUser, setAssignedUser] = useState();
