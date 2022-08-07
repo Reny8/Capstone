@@ -43,7 +43,6 @@ const ProjectForm = (props) => {
     <div className="accordion" id="projectAccordion">
       <div className="accordion-item">
         <form onSubmit={createProject}>
-          <div>
             <h2 className="accordion-header" id="headingOne">
               <button
               onClick={()=> toggle()}
@@ -87,7 +86,6 @@ const ProjectForm = (props) => {
                 </div>
               </div>
             </div>
-          </div>
         </form>
       </div>
     </div>

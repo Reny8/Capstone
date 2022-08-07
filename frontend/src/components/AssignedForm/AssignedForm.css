@@ -13,8 +13,12 @@
     display: flex;
     align-items: stretch;
 }
-.assigned-form-container .grid-box select {
-    margin-left: 1rem
+.accordion select {
+    margin-right: 1rem;
+    border-radius: 5px;
+    margin-left: 1rem;
+    color: white;
+    background-color: #332313;
 }
 .assigned-form-container .border-box h2 {
     padding-left: 0rem;
