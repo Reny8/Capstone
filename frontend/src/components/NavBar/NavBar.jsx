@@ -21,31 +21,32 @@ const Navbar = (props) => {
           </li>
           <li>
             <button onClick={() => navigate("/")} className="button">
-            <img src="https://img.icons8.com/fluency-systems-regular/48/6187C2/home.png"/>            </button>
+              <img src="https://img.icons8.com/fluency-systems-regular/48/6187C2/home.png" />{" "}
+            </button>
           </li>
           <li>
             <button onClick={() => navigate("/logs")} className="button">
-              <img src="https://img.icons8.com/fluency/48/000000/spiral-bound-booklet.png" />
+              <img src="https://img.icons8.com/pastel-glyph/48/6187C2/spiral-bound-booklet.png" />{" "}
             </button>
           </li>
           <li>
             <button onClick={() => navigate("/agenda")} className="button">
-              <img src="https://img.icons8.com/color/48/000000/calendar-16.png" />
+              <img src="https://img.icons8.com/ios/48/6187C2/calendar--v1.png" />{" "}
             </button>
           </li>
           <li>
             <button onClick={() => navigate("/print")} className="button">
-              <img src="https://img.icons8.com/fluency/48/000000/print.png" />
+              <img src="https://img.icons8.com/ios/48/6187C2/print--v1.png" />{" "}
             </button>
           </li>
           <li>
             {user ? (
               <button className="button" onClick={logoutUser}>
-                <img src="https://img.icons8.com/cute-clipart/48/000000/exit.png" />{" "}
+                <img src="https://img.icons8.com/ios-glyphs/48/6187C2/logout-rounded-down.png" />{" "}
               </button>
             ) : (
               <button className="button" onClick={() => navigate("/login")}>
-                <img src="https://img.icons8.com/cute-clipart/48/000000/enter.png" />{" "}
+                <img src="https://img.icons8.com/ios-filled/48/6187C2/login-rounded-down.png" />{" "}
               </button>
             )}
           </li>
@@ -66,27 +67,27 @@ const Navbar = (props) => {
           </li>
           <li>
             <button onClick={() => navigate("/")} className="button">
-            <img src="https://img.icons8.com/fluency-systems-regular/48/6187C2/home.png"/> 
+              <img src="https://img.icons8.com/fluency-systems-regular/48/6187C2/home.png" />
             </button>
           </li>
           <li>
             <button onClick={() => navigate("/logs")} className="button">
-              <img src="https://img.icons8.com/fluency/48/000000/spiral-bound-booklet.png" />
+              <img src="https://img.icons8.com/pastel-glyph/48/6187C2/spiral-bound-booklet.png" />{" "}
             </button>
           </li>
           <li>
             <button onClick={() => navigate("/agenda")} className="button">
-              <img src="https://img.icons8.com/color/48/000000/calendar-16.png" />
+              <img src="https://img.icons8.com/ios/48/6187C2/calendar--v1.png" />{" "}
             </button>
           </li>
           <li>
             {user ? (
               <button className="button" onClick={logoutUser}>
-                <img src="https://img.icons8.com/cute-clipart/48/000000/exit.png" />{" "}
+                <img src="https://img.icons8.com/ios-glyphs/48/6187C2/logout-rounded-down.png" />{" "}
               </button>
             ) : (
               <button className="button" onClick={() => navigate("/login")}>
-                <img src="https://img.icons8.com/cute-clipart/48/000000/enter-2.png" />{" "}
+                <img src="https://img.icons8.com/ios-filled/48/6187C2/login-rounded-down.png" />{" "}
               </button>
             )}
           </li>
