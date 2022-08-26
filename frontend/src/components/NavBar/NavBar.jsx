@@ -21,8 +21,7 @@ const Navbar = (props) => {
           </li>
           <li>
             <button onClick={() => navigate("/")} className="button">
-              <img src="https://img.icons8.com/cute-clipart/48/000000/home.png" />
-            </button>
+            <img src="https://img.icons8.com/fluency-systems-regular/48/6187C2/home.png"/>            </button>
           </li>
           <li>
             <button onClick={() => navigate("/logs")} className="button">
@@ -67,7 +66,7 @@ const Navbar = (props) => {
           </li>
           <li>
             <button onClick={() => navigate("/")} className="button">
-              <img src="https://img.icons8.com/cute-clipart/48/000000/home.png" />
+            <img src="https://img.icons8.com/fluency-systems-regular/48/6187C2/home.png"/> 
             </button>
           </li>
           <li>
