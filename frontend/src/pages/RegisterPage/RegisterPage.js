@@ -76,7 +76,7 @@ const RegisterPage = () => {
             <label>
               PASSWORD:
               <input
-                type="text"
+                type="password"
                 name="password"
                 placeholder=" Enter Password Choice..."
                 value={formData.password}

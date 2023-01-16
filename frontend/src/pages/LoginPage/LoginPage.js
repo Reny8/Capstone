@@ -36,7 +36,7 @@ const LoginPage = () => {
           <div className="grid-box">
             <label>PASSWORD:
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder=" Password Here..."
               value={formData.password}
