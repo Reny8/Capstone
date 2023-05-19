@@ -46,7 +46,7 @@ const AssignedForm = (props) => {
           <h2 className="accordion-header" id="headingTwo">
             <button
             onClick={()=>toggleAssign()}
-              class="accordion-button"
+              className="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"

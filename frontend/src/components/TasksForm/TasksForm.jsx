@@ -34,6 +34,7 @@ const TasksForm = (props) => {
       props.getAllTasks();
     } catch (error) {
       console.log(error.message);
+      console.log(user, token)
     }
   }
   function toggleTask() {
@@ -53,7 +54,7 @@ const TasksForm = (props) => {
             {" "}
             <button
             onClick={()=>toggleTask()}
-              class="accordion-button"
+              className="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"

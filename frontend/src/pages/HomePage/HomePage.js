@@ -38,9 +38,6 @@ const HomePage = (props) => {
   if (user.role === "Project Manager") {
     return (
       <div>
-        <div className="welcome">
-          <h1> Welcome {user.first_name}!</h1>
-        </div>
         <div className="box">
           <div style={{ paddingBottom: "1rem" }}>
             <ProjectForm

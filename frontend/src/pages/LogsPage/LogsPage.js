@@ -5,7 +5,6 @@ import DisplayLogs from "../../components/DisplayLogs/DisplayLogs";
 import LogForm from "../../components/LogForm/LogForm";
 const LogsPage = (props) => {
   const [user, token] = useAuth();
-
   
   if (user.role === "Software Developer") {
     return (
