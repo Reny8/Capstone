@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
 const CompletionChart = (props) => {
-  const [completed, setCompleted] = useState([]);
-  const [notDone, setNotDone] = useState([]);
+  const [completed, setCompleted] = useState(0);
+  const [notDone, setNotDone] = useState(0);
   const options = {
     title: `${props.projectTitle} Completion`,
     backgroundColor: 'transparent',
@@ -30,7 +30,7 @@ const CompletionChart = (props) => {
     setNotDone(taskNotDone.length);
   });
   function handleData() {
-    if (completed !== [] || notDone !== []) {
+    if (completed || notDone) {
       const data = [
         ['Tasks', 'How Many Completed'],
         ['Task Completed', completed],
@@ -38,6 +38,12 @@ const CompletionChart = (props) => {
       ];
       return data;
     }
+    const data = [
+      ['Tasks', 'How Many Completed'],
+      ['Task Completed', 0],
+      ['Project Created', 1],
+    ];
+    return data;
   }
   return (
     <div>
