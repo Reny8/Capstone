@@ -80,6 +80,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setToken(null);
       navigate("/");
+      window.location.reload()
     }
   };
 

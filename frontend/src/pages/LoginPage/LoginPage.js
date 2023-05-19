@@ -15,6 +15,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (isServerError) {
       reset();
+      console.clear()
     }
   }, [isServerError]);
 
