@@ -104,9 +104,6 @@ function App() {
         <Route path="/agenda" element ={<PrivateRoute><AgendaPage tasks={tasks} projects={projects}/></PrivateRoute>}/>
         <Route path="/print" element ={<ExportPDF tasks={tasks} projects={projects} />}/>
       </Routes>
-      <div>
-        <Footer />
-      </div>
     </div>
   );
 }

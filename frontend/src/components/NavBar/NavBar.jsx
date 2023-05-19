@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
     return (
-      <div>
+      <aside>
         <ul className='nav-bar'>
           <li className='brand'>
               <img src={Logo} alt='Comany Logo' style={{ height: '3rem' }} />
@@ -65,7 +65,7 @@ const Navbar = (props) => {
             )}
           </li>
         </ul>
-      </div>
+      </aside>
     );
 };
 

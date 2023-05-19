@@ -29,7 +29,7 @@ const LoginPage = () => {
             <input
               type="text"
               name="username"
-              placeholder= " Username Here..."
+              placeholder= "Username Here..."
               value={formData.username}
               onChange={handleInputChange}
             /></label>{" "}
@@ -39,7 +39,7 @@ const LoginPage = () => {
             <input
               type="password"
               name="password"
-              placeholder=" Password Here..."
+              placeholder="Password Here..."
               value={formData.password}
               onChange={handleInputChange}
             /></label>{" "}

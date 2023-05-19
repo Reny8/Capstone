@@ -22,5 +22,12 @@
     margin-left: auto
 }
 .register-container .grid-box select {
-   padding-left: 3rem;
+    padding: 0.1rem 0.5rem;
+    width:18rem;
+    border-radius: 5px
+}
+.note {
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
 }

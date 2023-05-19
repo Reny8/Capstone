@@ -1,4 +1,4 @@
-
+  @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;700&display=swap');
 *,
 *::before,
 *::after {
@@ -36,6 +36,7 @@
 
 html body {
   background-image: linear-gradient(#400723, #541D62,#41223B,#2c4568);
+  font-family: 'Wix Madefor Display', sans-serif;
 }
 .page {
   width: 100%;
@@ -44,10 +45,6 @@ html body {
   padding-bottom: 12.2rem;
   color: white
 }
-h1 {
-  font-family:"MV Boli";
-}
 h2 {
-  font-family:"MV Boli";
   text-align: center;
 }

@@ -30,7 +30,7 @@ const RegisterPage = () => {
               <input
                 type="text"
                 name="username"
-                placeholder=" Enter Username Choice..."
+                placeholder="Enter Username..."
                 value={formData.username}
                 onChange={handleInputChange}
               />
@@ -42,7 +42,7 @@ const RegisterPage = () => {
               <input
                 type="text"
                 name="firstName"
-                placeholder = " Enter First Name Here..."
+                placeholder = "Enter First Name..."
                 value={formData.firstName}
                 onChange={handleInputChange}
               />
@@ -54,7 +54,7 @@ const RegisterPage = () => {
               <input
                 type="text"
                 name="lastName"
-                placeholder=" Enter Last Name Here..."
+                placeholder="Enter Last Name..."
                 value={formData.lastName}
                 onChange={handleInputChange}
               />
@@ -64,9 +64,9 @@ const RegisterPage = () => {
             <label>
               EMAIL:
               <input
-                type="text"
+                type="email"
                 name="email"
-                placeholder=" Email Address Here..."
+                placeholder="Email Address..."
                 value={formData.email}
                 onChange={handleInputChange}
               />
@@ -76,9 +76,9 @@ const RegisterPage = () => {
             <label>
               PASSWORD:
               <input
-                type="password"
+                type="text"
                 name="password"
-                placeholder=" Enter Password Choice..."
+                placeholder="Enter Password..."
                 value={formData.password}
                 onChange={handleInputChange}
               />
@@ -98,7 +98,7 @@ const RegisterPage = () => {
             <Link to="/login">LOGIN</Link>{" "}
             <button className="button">REGISTER</button>{" "}
           </div>
-          <p style={{ fontSize: "12px" }}>
+          <p class="note">
             NOTE: Make this an uncommon password with characters, numbers, and
             special characters!
           </p>
