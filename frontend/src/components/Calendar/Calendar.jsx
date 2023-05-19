@@ -44,7 +44,7 @@ const CalendarDisplay = (props) => {
         events={handleEvents()}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: "500px", marginLeft: "15rem", paddingTop: "2rem", padding: "2rem"}}
+        style={{ height: "500px", marginLeft: "9rem", paddingTop: "2rem", padding: "2rem"}}
       />
     </div>
   );

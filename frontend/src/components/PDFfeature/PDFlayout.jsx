@@ -12,7 +12,7 @@ class PDFlayout extends React.Component {
           <div className="chart-grid-container">
             {this.props.projects.map((project) => {
               return (
-                <div>
+                <div key={project.id.toString()}>
                   <CompletionChart
                     projectId={project.id}
                     projectTitle={project.title}

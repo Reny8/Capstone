@@ -8,8 +8,8 @@ const DisplayLogs = (props) => {
           <thead>
             <tr>
               <th>Date</th>
-              <th>Project Related</th>
-              <th>Related Task</th>
+              <th>Project</th>
+              <th>Task</th>
               <th>Comment</th>
               <th>Assigned</th>
               <th>Status</th>
