@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import './NavBar.css';
 import Logo from '../../output-onlinegiftools.gif';

@@ -1,15 +1,4 @@
-.welcome {
-  display: flex;
-  margin-left: 10.5rem;
-  flex-direction: row;
-  justify-content: center;
-}
-.welcome input {
-  border-radius: 10px;
-  margin-left: 1rem;
-  color: white;
-  background-color: #332313;
-}
+
 .form-container {
   display: grid;
   grid-template-areas: "left right";
@@ -23,4 +12,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-left: 2rem
+}
+div.box div {
+  margin-bottom: 1rem
 }

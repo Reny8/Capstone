@@ -1,15 +1,23 @@
 .accordion button.accordion-button{
     font-size: inherit;
     background-color: #332313;
-    color:inherit
+    color:inherit;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
 }
-
+div.accordion-item {
+  border: none;
+}
+div.accordion-item:first-child {
+  margin-top: 1rem;
+}
 .accordion .accordion-body {
   background-color: #221203;
   display:flex;
   align-items: center;
   justify-content:center;
   flex-wrap: wrap;
+  margin-top:none;
 }
 
 .accordion div.grid-box input {
