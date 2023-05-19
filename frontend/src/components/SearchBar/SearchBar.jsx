@@ -1,7 +1,7 @@
-import "./SearchBar.css";
-import React, { useState } from "react";
+import './SearchBar.css';
+import React, { useState } from 'react';
 const SearchBar = (props) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   function handleClick() {
     let response = props.tasks.filter((task) => {
@@ -13,7 +13,7 @@ const SearchBar = (props) => {
         return true;
       } else if (
         task.assigned.first_name.toLowerCase() +
-          " " +
+          ' ' +
           task.assigned.last_name.toLowerCase() ===
         search.toLowerCase()
       ) {
@@ -26,23 +26,26 @@ const SearchBar = (props) => {
       return response;
     });
     props.setTasks(response);
-    setSearch("");
-    if (search === "") {
+    setSearch('');
+    if (search === '') {
       props.getAllTasks();
     }
   }
-  return (
-    <div className="search-bar">
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="  Search Tasks..."
-      />
-      <button onClick={() => handleClick()} className="button">
-        SEARCH
-      </button>
-    </div>
-  );
+  if (props.tasks.length) {
+    return (
+      <div className='search-bar'>
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder='Search Tasks...'
+        />
+        <button onClick={() => handleClick()} className='button'>
+          SEARCH
+        </button>
+      </div>
+    );
+  }
+  else return null
 };
 
 export default SearchBar;

@@ -64,19 +64,21 @@ const HomePage = (props) => {
                 projects={props.projects}
               />
             </div>
-            <h2>Project Completion</h2>
-            <div className='chart-grid-container'>
-              {props.projects.map((project) => {
-                return (
-                  <div key={project.id * 10}>
-                    <CompletionChart
-                      projectId={project.id}
-                      projectTitle={project.title}
-                      tasks={props.tasks}
-                    />
-                  </div>
-                );
-              })}
+            <div className='border-box' id='project-charts'>
+              <h2>Project Completion</h2>
+              <div className='chart-grid-container'>
+                {props.projects.map((project) => {
+                  return (
+                    <div key={project.id * 10}>
+                      <CompletionChart
+                        projectId={project.id}
+                        projectTitle={project.title}
+                        tasks={props.tasks}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </>
         ) : null}
@@ -91,11 +93,11 @@ const HomePage = (props) => {
         </div>
         <div>
           <h2>Tasks</h2>
-          <SearchBar
-            getAllTasks={props.getAllTasks}
-            setTasks={props.setTasks}
-            tasks={props.tasks}
-          />
+            <SearchBar
+              getAllTasks={props.getAllTasks}
+              setTasks={props.setTasks}
+              tasks={props.tasks}
+            />
           <DisplayTasks
             developers={developers}
             projects={props.projects}

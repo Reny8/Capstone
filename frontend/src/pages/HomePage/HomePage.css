@@ -13,6 +13,6 @@
   justify-content: center;
   margin-left: 2rem
 }
-div.box div {
-  margin-bottom: 1rem
+div.box div.chart-grid-container {
+  margin-bottom: 0rem;
 }

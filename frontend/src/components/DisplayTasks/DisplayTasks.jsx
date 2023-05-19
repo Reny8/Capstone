@@ -130,7 +130,7 @@ const DisplayTasks = (props) => {
                   </td>
                   <td>{task.description}</td>
                   <td>{task.status}</td>
-                  <td>
+                  <td style={{width: 0}}>
                     <button
                       onClick={() => handleUpdateClick(task)}
                       className="button"
@@ -138,7 +138,7 @@ const DisplayTasks = (props) => {
                       UPDATE
                     </button>
                   </td>
-                  <td>
+                  <td  style={{width: 0}}>
                     <button
                       onClick={() =>
                         handleDeleteClick(task.id, task.description)
