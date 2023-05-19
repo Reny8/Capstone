@@ -98,7 +98,7 @@ const RegisterPage = () => {
             <Link to="/login">LOGIN</Link>{" "}
             <button className="button">REGISTER</button>{" "}
           </div>
-          <p class="note">
+          <p className="note">
             NOTE: Make this an uncommon password with characters, numbers, and
             special characters!
           </p>

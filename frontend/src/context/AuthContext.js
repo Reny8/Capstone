@@ -75,13 +75,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    if (user) {
       localStorage.removeItem("token");
       setUser(null);
       setToken(null);
       navigate("/");
       window.location.reload()
-    }
   };
 
   const contextData = {

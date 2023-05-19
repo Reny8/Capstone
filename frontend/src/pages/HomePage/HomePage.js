@@ -10,11 +10,13 @@ import ProjectForm from '../../components/ProjectForm/ProjectForm';
 import TaskChart from '../../components/Charts/TaskChart';
 import AssignedForm from '../../components/AssignedForm/AssignedForm';
 import CompletionChart from '../../components/Charts/CompletionChart';
-import PrintDisplay from '../../components/PDFfeature/PrintDisplay';
 const HomePage = (props) => {
   const [user, token] = useAuth();
   const [developers, setDevelopers] = useState([]);
   useEffect(() => {
+    if (!user) {
+      return;
+    }
     getDevelopers();
     props.getAllProjects();
     props.getAllTasks();

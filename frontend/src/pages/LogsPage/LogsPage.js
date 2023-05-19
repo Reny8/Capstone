@@ -27,7 +27,7 @@ const LogsPage = (props) => {
       <div className="box">
         <h2>Logs</h2>
         <div className="project-manager-table">
-        <DisplayLogs user={user} logs={props.logs} /></div>
+        <DisplayLogs user={user} logs={props.logs} token={token}/></div>
       </div>
     );
   }
