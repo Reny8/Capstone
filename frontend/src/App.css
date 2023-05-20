@@ -53,3 +53,7 @@ div#project-charts.border-box {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+input:focus {
+  outline: none
+}

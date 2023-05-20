@@ -25,7 +25,7 @@ const LoginPage = () => {
         <div className="border-box">
           <h2>LOGIN BELOW</h2>
           <div className="grid-box">
-            <label>USERNAME:
+            <label style={{gap: '1.4rem'}}>USERNAME:
             <input
               type="text"
               name="username"

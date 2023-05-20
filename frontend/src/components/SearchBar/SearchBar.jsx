@@ -31,7 +31,6 @@ const SearchBar = (props) => {
       props.getAllTasks();
     }
   }
-  if (props.tasks.length) {
     return (
       <div className='search-bar'>
         <input
@@ -45,7 +44,5 @@ const SearchBar = (props) => {
       </div>
     );
   }
-  else return null
-};
 
 export default SearchBar;

@@ -10,8 +10,10 @@
 
 }
 .register-container .grid-box label {
-    margin-right:2rem;
+    margin-right: 2rem;
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
 .register-container .grid-box button {
     margin-right: 2rem;
@@ -22,9 +24,10 @@
     margin-left: auto
 }
 .register-container .grid-box select {
+    border: solid 1px;
     padding: 0.1rem 0.5rem;
-    width:18rem;
-    border-radius: 5px
+    width: 17.7rem;
+    border-radius: 5px;
 }
 .note {
     font-size: 10px;

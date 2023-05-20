@@ -3,7 +3,6 @@ import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import DisplayProjects from '../../components/DisplayProjects/DisplayProjects';
 import DisplayTasks from '../../components/DisplayTasks/DisplayTasks';
-import './HomePage.css';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TasksForm from '../../components/TasksForm/TasksForm';
 import ProjectForm from '../../components/ProjectForm/ProjectForm';

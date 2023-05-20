@@ -1,5 +1,4 @@
 import React from "react";
-import "./LogsPage.css";
 import useAuth from "../../hooks/useAuth";
 import DisplayLogs from "../../components/DisplayLogs/DisplayLogs";
 import LogForm from "../../components/LogForm/LogForm";

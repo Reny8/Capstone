@@ -33,7 +33,6 @@ align-items: center;
 }
 .grid-box input {
   border-radius: 5px;
-  margin-left: 1rem;
   color: white;
   background-color: #332313;
   padding: 0.1rem 0.5rem;
@@ -42,11 +41,19 @@ align-items: center;
 .grid-box label {
   font-size: x-large;
 }
+.login-container .grid-box label {
+
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
 .border-box h2 {
   text-align: center;
 }
 .border-box button {
-  margin-left: 2rem;
-  width: 18rem;
+  margin-left: 2.5rem;
+  width: 17.7rem;
   margin-top: 0.5rem;
 }
