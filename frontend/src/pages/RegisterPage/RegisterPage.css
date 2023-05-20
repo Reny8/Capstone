@@ -1,36 +1,28 @@
 .register-container .border-box {
-    margin-right: 14rem;
-    margin-left: 27rem;
-    padding: 1rem;
-    display: flex;
-    align-items:flex-end;
-}
-.register-container {
-    padding-top: 5rem;
-
+  align-items: flex-end;
+  padding: 1rem 4rem;
+  transform: translateX(50%) translateY(4%);
 }
 .register-container .grid-box label {
-    margin-right: 2rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 .register-container .grid-box button {
-    margin-right: 2rem;
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
-.register-container .border-box h2{
-    margin-right: auto;
-    margin-left: auto
+.register-container .border-box h2 {
+  text-align: center;
+  width: 100%;
 }
 .register-container .grid-box select {
-    border: solid 1px;
-    padding: 0.1rem 0.5rem;
-    width: 17.7rem;
-    border-radius: 5px;
+  border: solid 1px;
+  padding: 0.1rem 0.5rem;
+  width: 17.7rem;
+  border-radius: 5px;
 }
 .note {
-    font-size: 10px;
-    width: 100%;
-    text-align: center;
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
 }

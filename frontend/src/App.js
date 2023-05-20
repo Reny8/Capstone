@@ -75,52 +75,54 @@ function App() {
   return (
     <div className='page'>
       <Navbar user={user} />
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <PrivateRoute>
-              <HomePage
-                logs={logs}
-                tasks={tasks}
-                projects={projects}
-                setTasks={setTasks}
-                getAllProjects={getAllProjects}
-                getAllTasks={getAllTasks}
-                getAllLogs={getAllLogs}
-              />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path='/logs'
-          element={
-            <PrivateRoute>
-              <LogsPage
-                getAllTasks={getAllTasks}
-                getAllLogs={getAllLogs}
-                logs={logs}
-                tasks={tasks}
-                projects={projects}
-              />
-            </PrivateRoute>
-          }
-        />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route
-          path='/agenda'
-          element={
-            <PrivateRoute>
-              <AgendaPage tasks={tasks} projects={projects} />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path='/print'
-          element={<ExportPDF tasks={tasks} projects={projects} />}
-        />
-      </Routes>
+      <div className='right-content'>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <PrivateRoute>
+                <HomePage
+                  logs={logs}
+                  tasks={tasks}
+                  projects={projects}
+                  setTasks={setTasks}
+                  getAllProjects={getAllProjects}
+                  getAllTasks={getAllTasks}
+                  getAllLogs={getAllLogs}
+                />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/logs'
+            element={
+              <PrivateRoute>
+                <LogsPage
+                  getAllTasks={getAllTasks}
+                  getAllLogs={getAllLogs}
+                  logs={logs}
+                  tasks={tasks}
+                  projects={projects}
+                />
+              </PrivateRoute>
+            }
+          />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route
+            path='/agenda'
+            element={
+              <PrivateRoute>
+                <AgendaPage tasks={tasks} projects={projects} />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/print'
+            element={<ExportPDF tasks={tasks} projects={projects} />}
+          />
+        </Routes>
+      </div>
     </div>
   );
 }
