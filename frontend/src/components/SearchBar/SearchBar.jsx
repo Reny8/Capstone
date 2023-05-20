@@ -1,8 +1,13 @@
 import './SearchBar.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 const SearchBar = (props) => {
   const [search, setSearch] = useState('');
 
+  useEffect(()=>{
+    if (search === '') {
+      props.getAllTasks();
+    }
+  },[search])
   function handleClick() {
     let response = props.tasks.filter((task) => {
       if (task.status.toLowerCase() === search.toLowerCase()) {
@@ -26,10 +31,6 @@ const SearchBar = (props) => {
       return response;
     });
     props.setTasks(response);
-    setSearch('');
-    if (search === '') {
-      props.getAllTasks();
-    }
   }
     return (
       <div className='search-bar'>

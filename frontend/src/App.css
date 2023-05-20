@@ -51,7 +51,10 @@ div#project-charts.border-box {
 input:focus {
   outline: none
 }
-
+div.chart-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 div.right-content {
   width: 92.3%;
   height: 100%;

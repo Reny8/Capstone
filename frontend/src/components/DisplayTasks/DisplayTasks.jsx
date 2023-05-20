@@ -54,8 +54,8 @@ const DisplayTasks = (props) => {
         let lastName = prompt('Enter their last name');
         let developersFound = props.developers.filter((developer) => {
           if (
-            developer.first_name.toLowerCase() === firstName &&
-            developer.last_name.toLowerCase() === lastName
+            developer.first_name.toLowerCase() === firstName.toLowerCase() &&
+            developer.last_name.toLowerCase() === lastName.toLowerCase()
           ) {
             return true;
           }
@@ -111,7 +111,7 @@ const DisplayTasks = (props) => {
           <thead>
             <tr>
               <th>Due Date</th>
-              <th>Related Project</th>
+              <th style={{ width: "13rem"}}>Related Project</th>
               <th>Assigned</th>
               <th>Description</th>
               <th>Status</th>
