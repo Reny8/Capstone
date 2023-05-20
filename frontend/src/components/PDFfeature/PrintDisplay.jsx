@@ -14,7 +14,7 @@ const PrintDisplay = (props) => {
           {props.projects.map((project) => {
             return (
               <tr key={project.id + 25}>
-                <td>{project.title} Application</td>
+                <td>{project.title}</td>
                 <td>{project.due_date}</td>
               </tr>
             );
