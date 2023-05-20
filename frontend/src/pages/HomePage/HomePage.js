@@ -54,13 +54,14 @@ const HomePage = (props) => {
                 developers={developers}
                 projects={props.projects}
                 token={token}
+                getAllProjects={props.getAllProjects}
               />
             </div>
             <div>
               <TasksForm
                 getAllTasks={props.getAllTasks}
                 token={props.token}
-                projects={props.projects}
+                projects={props.projects}                
               />
             </div>
             <div className='border-box' id='project-charts'>

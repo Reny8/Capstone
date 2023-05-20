@@ -2,12 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import './DisplayTasks.css';
 const DisplayTasks = (props) => {
-  function handleDeleteClick(id, task) {
+  function handleDeleteClick(id) {
     try {
       let finalAnswer = prompt(
-        `You have selected:\nTask: ${task}\nAre you sure you would like to delete this task?`
+        "Are you sure you would like to delete this task?\nEnter y for yes or n for no."
       ).toLowerCase();
-      if (finalAnswer === 'yes') {
+      if (finalAnswer === 'y') {
         deleteTask(id);
       }
     } catch (error) {
@@ -148,7 +148,7 @@ const DisplayTasks = (props) => {
                       <td style={{ width: 0 }}>
                         <button
                           onClick={() =>
-                            handleDeleteClick(task.id, task.description)
+                            handleDeleteClick(task.id)
                           }
                           className='button'
                         >

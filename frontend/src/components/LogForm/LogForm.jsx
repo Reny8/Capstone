@@ -100,6 +100,7 @@ const LogForm = (props) => {
             <label>
               COMMENT:
               <input
+              style={{marginLeft: '1rem'}}
                 type="message"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}

@@ -5,15 +5,16 @@ const DisplayProjects = (props) => {
   async function handleDelete(id) {
     try {
       let answer = prompt(
-        'Are you sure you would like to delete the selected project'
+        'Are you sure you would like to delete the selected project\nEnter y for yes or n for no'
       ).toLowerCase();
-      if (answer === 'yes') {
+      if (answer === 'y') {
         await axios.delete(`http://127.0.0.1:8000/api/projects/${id}/`, {
           headers: {
             Authorization: 'Bearer ' + props.token,
           },
         });
         props.getAllProjects();
+        window.location.reload()
       }
     } catch (error) {
       console.log(error.message);

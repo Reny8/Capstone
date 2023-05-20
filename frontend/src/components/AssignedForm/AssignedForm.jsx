@@ -18,6 +18,7 @@ const AssignedForm = (props) => {
       );
       if (response.status === 202) {
         alert("Successfully Assigned");
+        props.getAllProjects()
       }
     } catch (error) {
       console.log(error.message);
