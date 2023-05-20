@@ -13,18 +13,6 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 }
-
-.border-box {
-  background-color:#221203;
-  border-radius: 5px;
-  padding: 2rem  4rem  2rem 4rem;
-  display: flex;
-  transform: translateX(50%) translateY(50%);
-  flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
-  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-  align-items:center;
-}
 .grid-box input {
   border-radius: 5px;
   color: white;
@@ -50,4 +38,23 @@ align-items: center;
   margin-left: 2.5rem;
   width: 17.7rem;
   margin-top: 0.5rem;
+}
+
+.border-box {
+  background-color:#221203;
+  border-radius: 5px;
+  padding: 2rem  4rem  2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
+  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  align-items:center;
+}
+
+div.around-login {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
 }

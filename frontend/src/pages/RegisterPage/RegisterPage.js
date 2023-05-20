@@ -19,7 +19,7 @@ const RegisterPage = () => {
   );
 
   return (
-    <div>
+    <div className="around-register">
       <form className="register-container" onSubmit={handleSubmit}>
         {" "}
         <div className="border-box">

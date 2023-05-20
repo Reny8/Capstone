@@ -20,7 +20,7 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <div>
+    <div className="around-login">
       <form className="login-container" onSubmit={handleSubmit}>
         <div className="border-box">
           <h2>LOGIN BELOW</h2>

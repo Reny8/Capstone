@@ -26,24 +26,17 @@
 }
 
 .box {
-  margin-left:10rem;
-  overflow: hidden
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
 }
 
 html body {
   font-family: 'Wix Madefor Display', sans-serif;
-  background-image: linear-gradient(#2c4568, #541D62,#41223B, #400723);
-  background-repeat:no-repeat;
+  background-color: #400723;
 }
 html {
-  height:100%
-}
-.page {
-  width: 100%;
-  height: 100%;
-  padding-right: 2rem;
-  padding-bottom: 12.2rem;
-  color: white
+  height:100%;
 }
 h2 {
   text-align: center;
@@ -60,21 +53,9 @@ input:focus {
 }
 
 div.right-content {
-  width: 92.4%;
+  width: 92.3%;
   height: 100%;
   position: absolute;
   left: 97px;
-}
-
-.border-box {
-  background-color:#221203;
-  border-radius: 5px;
-  width:fit-content;
-  padding: 2rem  4rem  2rem 4rem;
-  display: flex;
-  transform: translateX(50%) translateY(50%);
-  flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
-  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-  align-items:center;
+  background-image: linear-gradient(#2c4568, #541D62,#41223B, #400723);
 }
